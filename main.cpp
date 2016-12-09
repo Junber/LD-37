@@ -5,6 +5,12 @@
 #include <string>
 #include <algorithm>
 
+#if defined(WIN32) || defined(_WIN32)
+#define PATH_SEPARATOR "\\"
+#else
+#define PATH_SEPARATOR "/"
+#endif
+
 #ifndef _STATIC
 void *__gxx_personality_v0;
 #endif
@@ -32,7 +38,7 @@ template<class t> void remove_it(std::deque<t>* base, t thing)
 std::map<std::string,SDL_Texture*> loaded_textures;
 SDL_Texture* load_image(std::string s)
 {
-    if (!loaded_textures.count(s)) loaded_textures[s] = IMG_LoadTexture(renderer,("Data\\Graphics\\"+s+".png").c_str());
+    if (!loaded_textures.count(s)) loaded_textures[s] = IMG_LoadTexture(renderer,(std::string("Data")+PATH_SEPARATOR+"Graphics"+PATH_SEPARATOR+s+".png").c_str());
 
     return loaded_textures[s];
 }
