@@ -95,6 +95,10 @@ int main(int argc, char* args[])
         SDL_SetRenderDrawColor(renderer,255,255,255,255);
         SDL_RenderClear(renderer);
 
+        SDL_SetRenderDrawColor(renderer,255,0,0,255);
+        SDL_Rect r = {10,10,300,300};
+        SDL_RenderFillRect(renderer,&r);
+
         for (Object* o: objects)
         {
             o->update();
