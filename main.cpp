@@ -64,6 +64,10 @@ int main(int argc, char* args[])
 
     player = new Player();
 
+    SDL_Texture* bg = load_image("background");
+    int bg_size[2];
+    SDL_QueryTexture(bg,nullptr,nullptr,&bg_size[0],&bg_size[1]);
+
     load_level("Test");
 
     SDL_Event e;
@@ -104,8 +108,8 @@ int main(int argc, char* args[])
 			}
         }
 
-        SDL_SetRenderDrawColor(renderer,255,255,255,255);
-        SDL_RenderClear(renderer);
+        SDL_Rect r = {-camera_pos[0]+window[0]/2, -camera_pos[1]+window[1]/2, bg_size[0]*renderzoom, bg_size[1]*renderzoom};
+        SDL_RenderCopy(renderer,bg,nullptr,&r);
 
         player->update();
         for (Object* o: objects)
