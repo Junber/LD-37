@@ -5,6 +5,7 @@
 #include <string>
 #include <algorithm>
 #include <iostream>
+#include <fstream>
 
 #if defined(WIN32) || defined(_WIN32)
 #define PATH_SEPARATOR "\\"
@@ -39,6 +40,26 @@ template<class t> void remove_it(std::deque<t>* base, t thing)
 {
     base->erase( std::remove( std::begin(*base), std::end(*base), thing ), std::end(*base) );
 }
+
+std::deque<std::string> split(std::string s, char seperator)
+{
+    std::deque<std::string> ret;
+    ret.push_back("");
+    for (char c: s)
+    {
+        if (c == seperator)
+        {
+            ret.push_back("");
+        }
+        else
+        {
+            ret[ret.size()-1] += c;
+        }
+    }
+
+    return ret;
+}
+
 
 std::map<std::string,SDL_Texture*> loaded_textures;
 SDL_Texture* load_image(std::string s)
@@ -99,6 +120,22 @@ public:
     }
 };
 
+void load_level(std::string name)
+{
+    std::fstream file;
+    file.open(std::string("Data")+PATH_SEPARATOR+"Levels"+PATH_SEPARATOR+name+".txt");
+
+    while (!file.eof())
+    {
+        std::string line;
+        std::getline(file,line);
+
+        auto splitted = split(line,',');
+
+        new Object(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[0]);
+    }
+}
+
 int main(int argc, char* args[])
 {
     IMG_Init(IMG_INIT_PNG);
@@ -107,6 +144,8 @@ int main(int argc, char* args[])
     renderer = SDL_CreateRenderer(renderwindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
     Player* player = new Player();
+
+    load_level("Test");
 
     //SDL_SetRenderDrawBlendMode(renderer,SDL_BLENDMODE_BLEND);
     SDL_Event e;
