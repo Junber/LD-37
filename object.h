@@ -42,7 +42,7 @@ class Player: public Object
 public:
     int lastpos[2];
 
-    Player() : Object(10,10,"Test",2,"") {}
+    Player() : Object(10,10,"Player",2,"") {}
     void update();
 };
 extern Player* player;

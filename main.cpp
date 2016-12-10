@@ -66,7 +66,6 @@ int main(int argc, char* args[])
 
     load_level("Test");
 
-    //SDL_SetRenderDrawBlendMode(renderer,SDL_BLENDMODE_BLEND);
     SDL_Event e;
 	while (!breakk)
     {
