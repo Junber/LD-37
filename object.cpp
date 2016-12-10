@@ -14,6 +14,31 @@ int camera_pos[2] = {0,0};
 
 Player* player;
 
+void execute_script(std::deque<std::string> script)
+{
+    Dialog_box* d = nullptr;
+    for (std::string line: script)
+    {
+        if (d) d->script.push_back(line);
+        else
+        {
+            auto splitted = split(line,',');
+            if (splitted[0] == "play") //I hate string comparisons as much as the next guy but this is a lot easier
+            {
+                play_sound(load_sound(splitted[1]));
+            }
+            else if (splitted[0] == "dialog")
+            {
+                d = new Dialog_box(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[3],std::stoi(splitted[4]));
+            }
+            else if (splitted[0] == "level")
+            {
+                level_to_load = splitted[1];
+            }
+        }
+    }
+}
+
 Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file)
 {
     pos[0] = x;
@@ -28,6 +53,8 @@ Object::Object(int x, int y, std::string s, int hitbox_height, std::string scrip
 
     blocks = bool(hitbox_height);
     non_hitbox_height = size[1]-hitbox_height;
+
+    foreground=false;
 }
 
 Object::~Object()
@@ -79,22 +106,7 @@ bool Object::interact(bool touch)
     {
         if (script.empty()) return false;
 
-        for (std::string line: script)
-        {
-            auto splitted = split(line,',');
-            if (splitted[0] == "play") //I hate string comparisons as much as the next guy but this is a lot easier
-            {
-                play_sound(load_sound(splitted[1]));
-            }
-            else if (splitted[0] == "dialog")
-            {
-                new Dialog_box(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[3],std::stoi(splitted[4]));
-            }
-            else if (splitted[0] == "level")
-            {
-                level_to_load = splitted[1];
-            }
-        }
+        execute_script(script);
     }
 
     return false;
@@ -109,10 +121,6 @@ void Object::render()
 
 void Object::render_shadow(int darkness_color)
 {
-    /*int sx = std::min(window[0],std::max(0,pos[0]-size[0]/2-camera_pos[0]+window[0]/2)), ex = std::min(window[0],std::max(0,pos[0]+size[0]/2-camera_pos[0]+window[0]/2))-1,
-        sy = std::min(window[1],std::max(0,pos[1]-size[1]/2-camera_pos[1]+window[1]/2)), ey = std::min(window[1],std::max(0,pos[1]+size[1]/2-camera_pos[1]+window[1]/2))-1;
-    */
-
     Sint16 vx[7], vy[7];
     bool pentagon = false;
     int add_corners=0;
@@ -122,34 +130,34 @@ void Object::render_shadow(int darkness_color)
     {
         if (player->pos[1]<pos[1])
         {
-            vx[0] = pos[0]+size[0]/2;
-            vy[0] = pos[1]-size[1]/2;
+            vx[0] = pos[0]+size[0]/2+size[0]%2;
+            vy[0] = pos[1]-size[1]/2+non_hitbox_height;
             vx[1] = pos[0]-size[0]/2;
-            vy[1] = pos[1]-size[1]/2;
+            vy[1] = pos[1]-size[1]/2+non_hitbox_height;
         }
         else
         {
             vx[0] = pos[0]-size[0]/2;
-            vy[0] = pos[1]+size[1]/2;
-            vx[1] = pos[0]+size[0]/2;
-            vy[1] = pos[1]+size[1]/2;
+            vy[0] = pos[1]+size[1]/2+size[1]%2;
+            vx[1] = pos[0]+size[0]/2+size[0]%2;
+            vy[1] = pos[1]+size[1]/2+size[1]%2;
         }
     }
-    else if (player->pos[1] <= pos[1]+size[1]/2 && player->pos[1] >= pos[1]-size[1]/2)
+    else if (player->pos[1] <= pos[1]+size[1]/2 && player->pos[1] >= pos[1]-size[1]/2+non_hitbox_height)
     {
         if (player->pos[0]<pos[0])
         {
             vx[0] = pos[0]-size[0]/2;
-            vy[0] = pos[1]-size[1]/2;
+            vy[0] = pos[1]-size[1]/2+non_hitbox_height;
             vx[1] = pos[0]-size[0]/2;
-            vy[1] = pos[1]+size[1]/2;
+            vy[1] = pos[1]+size[1]/2+size[1]%2;
         }
         else
         {
-            vx[0] = pos[0]+size[0]/2;
-            vy[0] = pos[1]+size[1]/2;
-            vx[1] = pos[0]+size[0]/2;
-            vy[1] = pos[1]-size[1]/2;
+            vx[0] = pos[0]+size[0]/2+size[0]%2;
+            vy[0] = pos[1]+size[1]/2+size[1]%2;
+            vx[1] = pos[0]+size[0]/2+size[0]%2;
+            vy[1] = pos[1]-size[1]/2+non_hitbox_height;
         }
     }
     else
@@ -161,22 +169,22 @@ void Object::render_shadow(int darkness_color)
             int m = (player->pos[0] < pos[0])?-1:1;
 
             vx[0] = pos[0]-size[0]/2;
-            vy[0] = pos[1]+size[1]/2;
-            vx[1] = pos[0]+m*size[0]/2;
-            vy[1] = pos[1]+m*size[1]/2;
-            vx[2] = pos[0]+size[0]/2;
-            vy[2] = pos[1]-size[1]/2;
+            vy[0] = pos[1]+size[1]/2+size[1]%2;
+            vx[1] = pos[0]+m*size[0]/2+(m==1)*size[0]%2;
+            vy[1] = pos[1]+m*size[1]/2+(m==1)*size[0]%2+(m!=1)*non_hitbox_height;
+            vx[2] = pos[0]+size[0]/2+size[0]%2;
+            vy[2] = pos[1]-size[1]/2+non_hitbox_height;
         }
         else
         {
             int m = (player->pos[0] < pos[0])?-1:1;
 
             vx[0] = pos[0]-size[0]/2;
-            vy[0] = pos[1]-size[1]/2;
-            vx[1] = pos[0]+m*size[0]/2;
-            vy[1] = pos[1]-m*size[1]/2;
-            vx[2] = pos[0]+size[0]/2;
-            vy[2] = pos[1]+size[1]/2;
+            vy[0] = pos[1]-size[1]/2+non_hitbox_height;
+            vx[1] = pos[0]+m*size[0]/2+(m==1)*size[0]%2;
+            vy[1] = pos[1]-m*size[1]/2+(m!=1)*size[0]%2+(m==1)*non_hitbox_height;
+            vx[2] = pos[0]+size[0]/2+size[0]%2;
+            vy[2] = pos[1]+size[1]/2+size[1]%2;
         }
     }
 
@@ -268,6 +276,8 @@ Dialog_box::Dialog_box(int x, int y, std::string t, int speed) : Object(x,y,"Dia
     text = t;
     progress = 0;
     type_speed = speed;
+
+    foreground = true;
 }
 
 void Dialog_box::update()
@@ -280,7 +290,11 @@ bool Dialog_box::interact(bool touch)
     if (!touch)
     {
         if (progress < text.size()*type_speed) progress = text.size()*type_speed;
-        else to_delete.push_back(this);
+        else
+        {
+            to_delete.push_back(this);
+            execute_script(script);
+        }
 
         return true;
     }

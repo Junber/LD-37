@@ -1,1 +1,2 @@
-play,Robotic
+dialog,10,10,Hello,4
+dialog,20,20,HHeelllloo,2

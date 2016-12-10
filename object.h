@@ -9,7 +9,7 @@ class Object
 {
 public:
     int pos[2], size[2], non_hitbox_height;
-    bool blocks;
+    bool blocks, foreground;
     std::deque<std::string> script;
     SDL_Texture* tex;
 

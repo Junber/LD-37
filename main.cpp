@@ -47,7 +47,7 @@ void render_shadows(int darkness_color)
 
 bool comp(Object* a, Object* b)
 {
-    return a->pos[1] < b->pos[1];
+    return (!a->foreground && (b->foreground || a->pos[1] < b->pos[1]));
 }
 
 int main(int argc, char* args[])
@@ -121,7 +121,7 @@ int main(int argc, char* args[])
             o->render();
         }
 
-        render_shadows(255);
+        //render_shadows(100);
 
         for (Object* o: to_delete)
         {
