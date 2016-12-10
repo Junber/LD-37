@@ -8,6 +8,7 @@
 #include "object.h"
 #include "loading.h"
 #include "font.h"
+#include "sound.h"
 
 #ifndef _STATIC
 void *__gxx_personality_v0;
@@ -27,6 +28,7 @@ void limit_fps()
 int main(int argc, char* args[])
 {
     IMG_Init(IMG_INIT_PNG);
+    sound_init();
     font_init();
 
     renderwindow = SDL_CreateWindow("LD 37", 50, 50, window[0]*renderzoom, window[1]*renderzoom, SDL_WINDOW_SHOWN);

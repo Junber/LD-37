@@ -2,6 +2,8 @@
 #include "loading.h"
 #include "base_functions.h"
 #include "font.h"
+#include "sound.h"
+#include "loading.h"
 #include <iostream>
 
 const Uint8* keystate;
@@ -9,7 +11,7 @@ std::deque<Object*> objects,  to_delete;
 
 Player* player;
 
-Object::Object(int x, int y, std::string s, bool b)
+Object::Object(int x, int y, std::string s, bool b, std::string script_file)
 {
     pos[0] = x;
     pos[1] = y;
@@ -20,6 +22,7 @@ Object::Object(int x, int y, std::string s, bool b)
     objects.push_back(this);
 
     blocks = b;
+    load_script(script_file, &script);
 }
 
 Object::~Object()
@@ -69,8 +72,16 @@ bool Object::interact(bool touch)
 {
     if (touch)
     {
-        new Dialog_box(10,10,"Hello. 1 ... 2 ... Test, Test!",5);
-        return true;
+        if (!script.size()) return false;
+
+        for (std::string line: script)
+        {
+            auto splitted = split(line,',');
+            if (splitted[0] == "play")
+            {
+                play_sound(load_sound(splitted[1]));
+            }
+        }
     }
 
     return false;
@@ -95,7 +106,7 @@ void Player::update()
     if (keystate[SDL_SCANCODE_W]) pos[1]--;
 }
 
-Dialog_box::Dialog_box(int x, int y, std::string t, int speed) : Object(x,y,"Dialog_Box",false)
+Dialog_box::Dialog_box(int x, int y, std::string t, int speed) : Object(x,y,"Dialog_Box",false,"")
 {
     text = t;
     progress = 0;

@@ -2,6 +2,7 @@
 #include "base_functions.h"
 #include "object.h"
 #include <map>
+#include <iostream>
 
 const int renderzoom = 2;
 const int window[2] = {480,270};
@@ -28,6 +29,30 @@ void load_level(std::string name)
 
         auto splitted = split(line,',');
 
-        new Object(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[0],true);
+        new Object(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[0],true,splitted[3]);
     }
+}
+
+void load_script(std::string name, std::deque<std::string>* result)
+{
+    if (!name.size()) return;
+
+    std::fstream file;
+    file.open(std::string("Data")+PATH_SEPARATOR+"Scripts"+PATH_SEPARATOR+name+".txt");
+
+    while (!file.eof())
+    {
+        std::string line;
+        std::getline(file,line);
+
+        result->push_back(line);
+    }
+}
+
+std::map<std::string,Mix_Chunk*> loaded_sounds;
+Mix_Chunk* load_sound(std::string s)
+{
+    if (!loaded_sounds.count(s)) loaded_sounds[s] = Mix_LoadWAV((std::string("Data")+PATH_SEPARATOR+"Sounds"+PATH_SEPARATOR+s+".wav").c_str());
+    std::cout << Mix_GetError();
+    return loaded_sounds[s];
 }

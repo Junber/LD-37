@@ -10,9 +10,10 @@ class Object
 public:
     int pos[2], size[2];
     bool blocks;
+    std::deque<std::string> script;
     SDL_Texture* tex;
 
-    Object(int x, int y, std::string s, bool b);
+    Object(int x, int y, std::string s, bool b, std::string script_file);
     virtual ~Object();
     bool collision(int x, int y, int sx, int sy);
     virtual void update();
@@ -39,7 +40,7 @@ class Player: public Object
 public:
     int lastpos[2];
 
-    Player() : Object(10,10,"Test",false) {}
+    Player() : Object(10,10,"Test",false,"") {}
     void update();
 };
 extern Player* player;
