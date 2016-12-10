@@ -5,7 +5,7 @@
 #include <iostream>
 
 const int renderzoom = 2;
-const int window[2] = {480,270};
+const int window[2] = {480,270};//{960,540};
 SDL_Window* renderwindow = nullptr;
 SDL_Renderer* renderer = nullptr;
 std::string level_to_load = "";
@@ -30,7 +30,7 @@ void load_level(std::string name)
 
         auto splitted = split(line,',');
 
-        new Object(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[0],true,splitted[3]);
+        new Object(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[0],std::stoi(splitted[4]),splitted[3]);
     }
 }
 

@@ -25,6 +25,29 @@ void limit_fps()
     last_time = SDL_GetTicks();
 }
 
+SDL_Texture* overlay;
+
+void render_shadows(int darkness_color)
+{
+    SDL_SetRenderTarget(renderer,overlay);
+    SDL_SetRenderDrawColor(renderer,darkness_color,darkness_color,darkness_color,255);
+    SDL_RenderClear(renderer);
+    for (Object* o: objects)
+    {
+        o->render_shadow(darkness_color);
+    }
+    SDL_SetRenderTarget(renderer,nullptr);
+
+    SDL_RenderCopy(renderer,overlay,nullptr,nullptr);
+
+    SDL_SetRenderTarget(renderer,nullptr);
+}
+
+bool comp(Object* a, Object* b)
+{
+    return a->pos[1] < b->pos[1];
+}
+
 int main(int argc, char* args[])
 {
     IMG_Init(IMG_INIT_PNG);
@@ -33,6 +56,8 @@ int main(int argc, char* args[])
 
     renderwindow = SDL_CreateWindow("LD 37", 50, 50, window[0]*renderzoom, window[1]*renderzoom, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(renderwindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+    overlay = SDL_CreateTexture(renderer,SDL_PIXELFORMAT_RGBA8888,SDL_TEXTUREACCESS_TARGET,window[0],window[1]);
 
     player = new Player();
 
@@ -67,7 +92,7 @@ int main(int argc, char* args[])
 
                         for (Object* o: objects)
                         {
-                            if (o != player && o->collision(player->pos[0],player->pos[1],player->size[0]+2,player->size[1]+2))
+                            if (o != player && o->collision(player->pos[0],player->pos[1],player->size[0]+2,player->size[1]+2,player->non_hitbox_height))
                             {
                                 o->interact(true);
                             }
@@ -80,10 +105,13 @@ int main(int argc, char* args[])
         SDL_SetRenderDrawColor(renderer,255,255,255,255);
         SDL_RenderClear(renderer);
 
+        player->update();
         for (Object* o: objects)
         {
-            o->update();
+            if (o != player) o->update();
         }
+
+        std::stable_sort(objects.begin(),objects.end(),comp);
 
         for (Object* o: objects)
         {
@@ -98,6 +126,13 @@ int main(int argc, char* args[])
 
         if (!level_to_load.empty())
         {
+            int ignored=0;
+            while (objects.size() > ignored)
+            {
+                if (objects[ignored] == player) ignored++;
+                else delete objects[ignored];
+            }
+
             load_level(level_to_load);
             level_to_load = "";
         }

@@ -8,20 +8,22 @@
 class Object
 {
 public:
-    int pos[2], size[2];
+    int pos[2], size[2], non_hitbox_height;
     bool blocks;
     std::deque<std::string> script;
     SDL_Texture* tex;
 
-    Object(int x, int y, std::string s, bool b, std::string script_file);
+    Object(int x, int y, std::string s, int hitbox_height, std::string script_file);
     virtual ~Object();
-    bool collision(int x, int y, int sx, int sy);
+    bool collision(int x, int y, int sx, int sy, int nhh);
     virtual void update();
     virtual void render();
+    void render_shadow(int darkness_color);
     virtual bool interact(bool touch);
 };
 
 extern std::deque<Object*> objects, to_delete;
+extern int camera_pos[2];
 
 class Dialog_box : public Object
 {
@@ -40,7 +42,7 @@ class Player: public Object
 public:
     int lastpos[2];
 
-    Player() : Object(10,10,"Test",false,"") {}
+    Player() : Object(10,10,"Test",2,"") {}
     void update();
 };
 extern Player* player;
