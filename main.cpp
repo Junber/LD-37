@@ -4,6 +4,7 @@
 #include <map>
 #include <string>
 #include <algorithm>
+#include <iostream>
 
 #if defined(WIN32) || defined(_WIN32)
 #define PATH_SEPARATOR "\\"
@@ -15,11 +16,15 @@
 void *__gxx_personality_v0;
 #endif
 
-const int window[2] = {500,500};
+const int window[2] = {480,270};
+
+const int zoom = 2;
 
 bool breakk = false;
 SDL_Window* renderwindow;
 SDL_Renderer* renderer;
+
+const Uint8* keystate;
 
 int last_time;
 float wait;
@@ -74,9 +79,23 @@ public:
 
     void render()
     {
-        SDL_Rect r={pos[0], pos[1], size[0], size[1]};
+        SDL_Rect r={pos[0]*zoom, pos[1]*zoom, size[0]*zoom, size[1]*zoom};
 
         SDL_RenderCopy(renderer, tex, nullptr, &r);
+    }
+};
+
+class Player: public Object
+{
+public:
+    Player() : Object(10,10,"Test") {}
+
+    void update()
+    {
+        if (keystate[SDL_SCANCODE_D]) pos[0]++;
+        if (keystate[SDL_SCANCODE_A]) pos[0]--;
+        if (keystate[SDL_SCANCODE_S]) pos[1]++;
+        if (keystate[SDL_SCANCODE_W]) pos[1]--;
     }
 };
 
@@ -84,8 +103,10 @@ int main(int argc, char* args[])
 {
     IMG_Init(IMG_INIT_PNG);
 
-    renderwindow = SDL_CreateWindow("...", 50, 50, window[0], window[1], SDL_WINDOW_SHOWN);
+    renderwindow = SDL_CreateWindow("LD 37", 50, 50, window[0]*zoom, window[1]*zoom, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(renderwindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+    Player* player = new Player();
 
     //SDL_SetRenderDrawBlendMode(renderer,SDL_BLENDMODE_BLEND);
     SDL_Event e;
@@ -95,13 +116,21 @@ int main(int argc, char* args[])
         {
 			if (e.type == SDL_QUIT) breakk = true;
 
-			else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE) breakk = true;
+			else if (e.type == SDL_KEYDOWN)
+			{
+			    switch (e.key.keysym.sym)
+			    {
+                    case SDLK_ESCAPE:
+                        breakk = true;
+                        break;
+			    }
+			}
         }
+
+        keystate = SDL_GetKeyboardState(nullptr);
 
         SDL_SetRenderDrawColor(renderer,255,255,255,255);
         SDL_RenderClear(renderer);
-
-        SDL_RenderCopy(renderer,load_image("Test"),nullptr,nullptr);
 
         for (Object* o: objects)
         {
