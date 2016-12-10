@@ -5,6 +5,7 @@
 #include "sound.h"
 #include "loading.h"
 #include <iostream>
+#include "SDL2_gfx-1.0.1/SDL2_gfxPrimitives.h"
 
 const Uint8* keystate;
 std::deque<Object*> objects, to_delete;
@@ -240,7 +241,7 @@ void Object::render_shadow(int darkness_color)
         vy[1] += -camera_pos[1]+window[1]/2;
     }
 
-    //filledPolygonRGBA(renderer,vx,vy,(pentagon?5:4)+add_corners,darkness_color,darkness_color,darkness_color,255);
+    filledPolygonRGBA(renderer,vx,vy,(pentagon?5:4)+add_corners,darkness_color,darkness_color,darkness_color,255);
 }
 
 void Player::update()

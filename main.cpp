@@ -30,7 +30,7 @@ SDL_Texture* overlay;
 void render_shadows(int darkness_color)
 {
     SDL_SetRenderTarget(renderer,overlay);
-    SDL_SetRenderDrawColor(renderer,darkness_color,darkness_color,darkness_color,255);
+    SDL_SetRenderDrawColor(renderer,255,255,255,255);//darkness_color,darkness_color,darkness_color,255);
     SDL_RenderClear(renderer);
     for (Object* o: objects)
     {
@@ -41,6 +41,8 @@ void render_shadows(int darkness_color)
     SDL_RenderCopy(renderer,overlay,nullptr,nullptr);
 
     SDL_SetRenderTarget(renderer,nullptr);
+
+    SDL_RenderCopy(renderer,overlay,nullptr,nullptr);
 }
 
 bool comp(Object* a, Object* b)
@@ -58,6 +60,7 @@ int main(int argc, char* args[])
     renderer = SDL_CreateRenderer(renderwindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
     overlay = SDL_CreateTexture(renderer,SDL_PIXELFORMAT_RGBA8888,SDL_TEXTUREACCESS_TARGET,window[0],window[1]);
+    SDL_SetTextureBlendMode(overlay,SDL_BLENDMODE_MOD);
 
     player = new Player();
 
@@ -118,6 +121,8 @@ int main(int argc, char* args[])
             o->render();
         }
 
+        render_shadows(255);
+
         for (Object* o: to_delete)
         {
             delete o;
@@ -126,7 +131,7 @@ int main(int argc, char* args[])
 
         if (!level_to_load.empty())
         {
-            int ignored=0;
+            unsigned ignored=0;
             while (objects.size() > ignored)
             {
                 if (objects[ignored] == player) ignored++;
