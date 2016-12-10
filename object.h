@@ -17,20 +17,21 @@ public:
     bool collision(int x, int y, int sx, int sy);
     virtual void update();
     virtual void render();
-    virtual void interact();
+    virtual bool interact(bool touch);
 };
 
-extern std::deque<Object*> objects;
+extern std::deque<Object*> objects, to_delete;
 
 class Dialog_box : public Object
 {
 public:
     std::string text;
-    int progress;
+    unsigned progress, type_speed;
 
-    Dialog_box(int x, int y, std::string t);
+    Dialog_box(int x, int y, std::string t, int speed);
     void update();
     void render();
+    bool interact(bool touch);
 };
 
 class Player: public Object

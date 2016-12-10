@@ -52,13 +52,25 @@ int main(int argc, char* args[])
                         breakk = true;
                         break;
                     case SDLK_e:
+                        bool done_soemthing=false;
                         for (Object* o: objects)
                         {
-                            if (o->collision(player->pos[0],player->pos[1],player->size[0]+2,player->size[1]+2))
+                            if (o->interact(false))
                             {
-                                o->interact();
+                                done_soemthing = true;
+                                break;
                             }
                         }
+                        if (done_soemthing) break;
+
+                        for (Object* o: objects)
+                        {
+                            if (o != player && o->collision(player->pos[0],player->pos[1],player->size[0]+2,player->size[1]+2))
+                            {
+                                o->interact(true);
+                            }
+                        }
+                        break;
 			    }
 			}
         }
@@ -75,6 +87,12 @@ int main(int argc, char* args[])
         {
             o->render();
         }
+
+        for (Object* o: to_delete)
+        {
+            delete o;
+        }
+        to_delete.clear();
 
         SDL_RenderPresent(renderer);
         limit_fps();

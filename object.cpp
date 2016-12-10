@@ -5,7 +5,7 @@
 #include <iostream>
 
 const Uint8* keystate;
-std::deque<Object*> objects;
+std::deque<Object*> objects,  to_delete;
 
 Player* player;
 
@@ -65,9 +65,15 @@ void Object::update()
     }
 }
 
-void Object::interact()
+bool Object::interact(bool touch)
 {
-    new Dialog_box(10,10,"Hello. 1 ... 2 ... Test, Test!");
+    if (touch)
+    {
+        new Dialog_box(10,10,"Hello. 1 ... 2 ... Test, Test!",5);
+        return true;
+    }
+
+    return false;
 }
 
 void Object::render()
@@ -89,20 +95,34 @@ void Player::update()
     if (keystate[SDL_SCANCODE_W]) pos[1]--;
 }
 
-Dialog_box::Dialog_box(int x, int y, std::string t) : Object(x,y,"Dialog_Box",false)
+Dialog_box::Dialog_box(int x, int y, std::string t, int speed) : Object(x,y,"Dialog_Box",false)
 {
     text = t;
     progress = 0;
+    type_speed = speed;
 }
 
 void Dialog_box::update()
 {
-    if (progress < text.size()) progress++;
+    if (progress < text.size()*type_speed) progress++;
+}
+
+bool Dialog_box::interact(bool touch)
+{
+    if (!touch)
+    {
+        if (progress < text.size()*type_speed) progress = text.size()*type_speed;
+        else to_delete.push_back(this);
+
+        return true;
+    }
+
+    return false;
 }
 
 void Dialog_box::render()
 {
     Object::render();
 
-    render_text(pos[0]+10, pos[1]+10, text.substr(0,progress),255);
+    render_text(pos[0]+10, pos[1]+10, text.substr(0,progress/type_speed),255);
 }
