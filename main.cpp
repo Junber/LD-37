@@ -96,7 +96,7 @@ int main(int argc, char* args[])
         }
         to_delete.clear();
 
-        if (level_to_load.empty())
+        if (!level_to_load.empty())
         {
             load_level(level_to_load);
             level_to_load = "";

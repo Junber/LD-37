@@ -83,7 +83,7 @@ bool Object::interact(bool touch)
             }
             else if (splitted[0] == "dialog")
             {
-                new Dialog_box(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[3],std::stoi(splitted[4]))
+                new Dialog_box(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[3],std::stoi(splitted[4]));
             }
             else if (splitted[0] == "level")
             {
