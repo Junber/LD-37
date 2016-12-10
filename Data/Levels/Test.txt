@@ -1,1 +1,5 @@
 Test,30,30,Test,2
+top_wall,0,0,,15
+left_wall,0,72,,8
+right_wall,456,72,,8
+bot_wall,0,520,,72
