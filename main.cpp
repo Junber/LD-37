@@ -111,7 +111,7 @@ int main(int argc, char* args[])
         SDL_SetRenderDrawColor(renderer,0,0,0,255);
         SDL_RenderClear(renderer);
 
-        SDL_Rect r = {8-camera_pos[0]+window[0]/2, 72-camera_pos[1]+window[1]/2, bg_size[0]*renderzoom, bg_size[1]*renderzoom};
+        SDL_Rect r = {(8-camera_pos[0]+window[0]/2)*renderzoom, (72-camera_pos[1]+window[1]/2)*renderzoom, bg_size[0]*renderzoom, bg_size[1]*renderzoom};
         SDL_RenderCopy(renderer,bg,nullptr,&r);
 
         player->update();

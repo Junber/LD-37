@@ -47,6 +47,9 @@ Object::Object(int x, int y, std::string s, int hitbox_height, std::string scrip
     tex = load_image(s);
     SDL_QueryTexture(tex, nullptr, nullptr, &size[0], &size[1]);
 
+    pos[0] += size[0]/2;
+    pos[1] += size[1]/2;
+
     objects.push_back(this);
 
     load_script(script_file, &script);
@@ -114,7 +117,7 @@ bool Object::interact(bool touch)
 
 void Object::render()
 {
-    SDL_Rect r={(window[0]/2+pos[0]-camera_pos[0])*renderzoom, (window[1]/2+pos[1]-camera_pos[1])*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
+    SDL_Rect r={(window[0]/2+pos[0]-size[0]/2-camera_pos[0])*renderzoom, (window[1]/2+pos[1]-size[1]/2-camera_pos[1])*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
 
     SDL_RenderCopy(renderer, tex, nullptr, &r);
 }
