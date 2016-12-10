@@ -111,9 +111,6 @@ int main(int argc, char* args[])
         SDL_SetRenderDrawColor(renderer,0,0,0,255);
         SDL_RenderClear(renderer);
 
-        SDL_Rect r = {(8-camera_pos[0]+window[0]/2)*renderzoom, (72-camera_pos[1]+window[1]/2)*renderzoom, bg_size[0]*renderzoom, bg_size[1]*renderzoom};
-        SDL_RenderCopy(renderer,bg,nullptr,&r);
-
         player->update();
         for (Object* o: objects)
         {
@@ -126,7 +123,10 @@ int main(int argc, char* args[])
         if (camera_pos[0] < window[0]/2-5) camera_pos[0] = window[0]/2-5;
         else if (camera_pos[0] > bg_size[0]) camera_pos[0] = bg_size[0];
         if (camera_pos[1] < window[1]/2-5) camera_pos[1] = window[1]/2-5;
-        else if (camera_pos[1] > bg_size[1]) camera_pos[1] = bg_size[1];
+        else if (camera_pos[1] > bg_size[1]+9) camera_pos[1] = bg_size[1]+9;
+
+        SDL_Rect r = {(8-camera_pos[0]+window[0]/2)*renderzoom, (72-camera_pos[1]+window[1]/2)*renderzoom, bg_size[0]*renderzoom, bg_size[1]*renderzoom};
+        SDL_RenderCopy(renderer,bg,nullptr,&r);
 
         std::stable_sort(objects.begin(),objects.end(),comp);
 
