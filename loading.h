@@ -18,6 +18,7 @@ extern SDL_Window* renderwindow;
 extern SDL_Renderer* renderer;
 extern const int window[2];
 extern const int renderzoom;
+extern std::string level_to_load;
 
 SDL_Texture* load_image(std::string s);
 void load_level(std::string name);

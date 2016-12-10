@@ -72,14 +72,22 @@ bool Object::interact(bool touch)
 {
     if (touch)
     {
-        if (!script.size()) return false;
+        if (script.empty()) return false;
 
         for (std::string line: script)
         {
             auto splitted = split(line,',');
-            if (splitted[0] == "play")
+            if (splitted[0] == "play") //I hate string comparisons as much as the next guy but this is a lot easier
             {
                 play_sound(load_sound(splitted[1]));
+            }
+            else if (splitted[0] == "dialog")
+            {
+                new Dialog_box(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[3],std::stoi(splitted[4]))
+            }
+            else if (splitted[0] == "level")
+            {
+                level_to_load = splitted[1];
             }
         }
     }
