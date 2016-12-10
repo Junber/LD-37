@@ -7,6 +7,7 @@
 #include <iostream>
 #include "object.h"
 #include "loading.h"
+#include "font.h"
 
 #ifndef _STATIC
 void *__gxx_personality_v0;
@@ -26,6 +27,7 @@ void limit_fps()
 int main(int argc, char* args[])
 {
     IMG_Init(IMG_INIT_PNG);
+    font_init();
 
     renderwindow = SDL_CreateWindow("LD 37", 50, 50, window[0]*renderzoom, window[1]*renderzoom, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(renderwindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
@@ -49,6 +51,14 @@ int main(int argc, char* args[])
                     case SDLK_ESCAPE:
                         breakk = true;
                         break;
+                    case SDLK_e:
+                        for (Object* o: objects)
+                        {
+                            if (o->collision(player->pos[0],player->pos[1],player->size[0]+2,player->size[1]+2))
+                            {
+                                o->interact();
+                            }
+                        }
 			    }
 			}
         }

@@ -1,6 +1,8 @@
 #include "object.h"
 #include "loading.h"
 #include "base_functions.h"
+#include "font.h"
+#include <iostream>
 
 const Uint8* keystate;
 std::deque<Object*> objects;
@@ -63,6 +65,11 @@ void Object::update()
     }
 }
 
+void Object::interact()
+{
+    new Dialog_box(10,10,"Hello. 1 ... 2 ... Test, Test!");
+}
+
 void Object::render()
 {
     SDL_Rect r={pos[0]*renderzoom, pos[1]*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
@@ -80,4 +87,22 @@ void Player::update()
     if (keystate[SDL_SCANCODE_A]) pos[0]--;
     if (keystate[SDL_SCANCODE_S]) pos[1]++;
     if (keystate[SDL_SCANCODE_W]) pos[1]--;
+}
+
+Dialog_box::Dialog_box(int x, int y, std::string t) : Object(x,y,"Dialog_Box",false)
+{
+    text = t;
+    progress = 0;
+}
+
+void Dialog_box::update()
+{
+    if (progress < text.size()) progress++;
+}
+
+void Dialog_box::render()
+{
+    Object::render();
+
+    render_text(pos[0]+10, pos[1]+10, text.substr(0,progress),255);
 }

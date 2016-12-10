@@ -16,10 +16,22 @@ public:
     virtual ~Object();
     bool collision(int x, int y, int sx, int sy);
     virtual void update();
-    void render();
+    virtual void render();
+    virtual void interact();
 };
 
 extern std::deque<Object*> objects;
+
+class Dialog_box : public Object
+{
+public:
+    std::string text;
+    int progress;
+
+    Dialog_box(int x, int y, std::string t);
+    void update();
+    void render();
+};
 
 class Player: public Object
 {
