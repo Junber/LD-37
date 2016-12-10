@@ -120,6 +120,14 @@ int main(int argc, char* args[])
             if (o != player) o->update();
         }
 
+        camera_pos[0] = player->pos[0];
+        camera_pos[1] = player->pos[1];
+
+        if (camera_pos[0] < window[0]/2-5) camera_pos[0] = window[0]/2-5;
+        else if (camera_pos[0] > bg_size[0]) camera_pos[0] = bg_size[0];
+        if (camera_pos[1] < window[1]/2-5) camera_pos[1] = window[1]/2-5;
+        else if (camera_pos[1] > bg_size[1]) camera_pos[1] = bg_size[1];
+
         std::stable_sort(objects.begin(),objects.end(),comp);
 
         for (Object* o: objects)

@@ -261,17 +261,12 @@ void Player::update()
 
     keystate = SDL_GetKeyboardState(nullptr);
 
-    if (keystate[SDL_SCANCODE_D]) pos[0]++;
-    if (keystate[SDL_SCANCODE_A]) pos[0]--;
-    if (keystate[SDL_SCANCODE_S]) pos[1]++;
-    if (keystate[SDL_SCANCODE_W]) pos[1]--;
+    int move_speed = 3;
 
-    camera_pos[0] = pos[0];
-    camera_pos[1] = pos[1];
-
-    if (camera_pos[0] < window[0]/2) camera_pos[0] = window[0]/2;
-
-    if (camera_pos[1] < window[1]/2) camera_pos[1] = window[1]/2;
+    if (keystate[SDL_SCANCODE_D]) pos[0]+=move_speed;
+    if (keystate[SDL_SCANCODE_A]) pos[0]-=move_speed;
+    if (keystate[SDL_SCANCODE_S]) pos[1]+=move_speed;
+    if (keystate[SDL_SCANCODE_W]) pos[1]-=move_speed;
 }
 
 Dialog_box::Dialog_box(int x, int y, std::string t, int speed) : Object(x,y,"Dialog_Box",0,"")
