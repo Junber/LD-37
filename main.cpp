@@ -162,6 +162,8 @@ int main(int argc, char* args[])
             level_to_load = "";
         }
 
+        if (effects[move_window]) SDL_SetWindowPosition(renderwindow,camera_pos[0]*renderzoom,camera_pos[1]*renderzoom);
+
         SDL_RenderPresent(renderer);
         limit_fps();
     }

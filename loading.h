@@ -16,7 +16,7 @@
 
 enum effects
 {
-    trails,random_bg_color,EFFECT_NUM
+    trails,random_bg_color,move_window,EFFECT_NUM
 };
 
 extern SDL_Window* renderwindow;
