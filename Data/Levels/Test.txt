@@ -3,3 +3,12 @@ top_wall,0,0,,15
 left_wall,0,72,,470
 right_wall,456,72,,470
 bot_wall,0,520,,50
+mid_wall,120,180,,160
+whiteboard,110,20,,0
+chair,134,80,,10
+tv,280,52,,38
+drawers,424,62,,10
+table,280,110,,20
+couch,272,140,,20
+wardrobe,432,160,,20
+printer,440,260,,20
