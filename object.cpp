@@ -25,7 +25,11 @@ void execute_script(std::deque<std::string> script)
             auto splitted = split(line,';');
             if (splitted[0] == "sound") //I hate string comparisons as much as the next guy but this is a lot easier
             {
-                play_sound(load_sound(splitted[1]));
+                play_sound(load_sound(splitted[1]),(splitted.size()>2 && splitted[2]=="2"));
+            }
+            else if (splitted[0] == "stop_sound")
+            {
+                stop_sound();
             }
             else if (splitted[0] == "music")
             {
@@ -287,7 +291,7 @@ void Object::render_shadow(int darkness_color)
     filledPolygonRGBA(renderer,vx,vy,(pentagon?5:4)+add_corners,darkness_color,darkness_color,darkness_color,255);
 }
 
-Player::Player() : Object(20,20,"player",4,"",false,false)
+Player::Player() : Object(20,20,"front1",4,"",false,false)
 {
     anim_progress = 0;
 }
@@ -298,23 +302,36 @@ void Player::update()
 
     keystate = SDL_GetKeyboardState(nullptr);
 
-    int move_speed = 1;
+    const int anim_speed=5, move_speed = 2;
 
     if (keystate[SDL_SCANCODE_D]) pos[0]+=move_speed;
     if (keystate[SDL_SCANCODE_A]) pos[0]-=move_speed;
     if (keystate[SDL_SCANCODE_S]) pos[1]+=move_speed;
     if (keystate[SDL_SCANCODE_W]) pos[1]-=move_speed;
 
-    if (pos[0]!=lastpos[0] || pos[1]!=lastpos[1])
+    if (keystate[SDL_SCANCODE_S] && !keystate[SDL_SCANCODE_W])
     {
-        const int anim_speed=5;
         anim_progress++;
         anim_progress%=6*anim_speed;
         tex = load_image("front"+std::to_string(anim_progress/anim_speed+1));
     }
-    else
+    else if (keystate[SDL_SCANCODE_W] && !keystate[SDL_SCANCODE_S])
     {
-        tex = load_image("front1");
+        anim_progress++;
+        anim_progress%=6*anim_speed;
+        tex = load_image("back"+std::to_string(anim_progress/anim_speed+1));
+    }
+    else if (keystate[SDL_SCANCODE_A] && !keystate[SDL_SCANCODE_D])
+    {
+        anim_progress++;
+        anim_progress%=6*anim_speed;
+        tex = load_image("left"+std::to_string(anim_progress/anim_speed+1));
+    }
+    else if (keystate[SDL_SCANCODE_D] && !keystate[SDL_SCANCODE_A])
+    {
+        anim_progress++;
+        anim_progress%=6*anim_speed;
+        tex = load_image("right"+std::to_string(anim_progress/anim_speed+1));
     }
 }
 

@@ -10,9 +10,16 @@ void sound_init()
     play_music(load_music("Shut-in"));
 }
 
-void play_sound(Mix_Chunk* s)
+int looping_channel;
+void play_sound(Mix_Chunk* s, bool loops)
 {
-    if (s!= nullptr) Mix_PlayChannel(-1, s, 0);
+    if (loops) looping_channel = Mix_PlayChannel(-1, s, -1);
+    else if (s!= nullptr) Mix_PlayChannel(-1, s, 0);
+}
+
+void stop_sound()
+{
+    Mix_HaltChannel(looping_channel);
 }
 
 void play_music(Mix_Music* s)

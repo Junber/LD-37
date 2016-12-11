@@ -98,7 +98,7 @@ int main(int argc, char* args[])
                         {
                             if (o != player && o->collision(player->pos[0],player->pos[1],player->size[0]+2,player->size[1]+2,player->non_hitbox_height))
                             {
-                                o->interact(true);
+                                if (o->interact(true)) break;
                             }
                         }
                         break;

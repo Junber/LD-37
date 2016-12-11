@@ -1,4 +1,5 @@
-sound,[file]
+sound,[file],[looping (optional]
+stop_sound
 music,[file]
 dialog,[posx],[posy],[text],[speed in frames/character]
 level,[file]

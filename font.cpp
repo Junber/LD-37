@@ -8,7 +8,7 @@ TTF_Font* font;
 void font_init()
 {
     TTF_Init();
-    font = TTF_OpenFont((std::string("Data")+PATH_SEPARATOR+"Fonts"+PATH_SEPARATOR+"Yantramanav-Medium.ttf").c_str(),20);
+    font = TTF_OpenFont((std::string("Data")+PATH_SEPARATOR+"Fonts"+PATH_SEPARATOR+"Yantramanav-Medium.ttf").c_str(),15);
 }
 
 std::map<std::pair<std::string,Uint8>,SDL_Texture*> loaded_texts;
@@ -28,7 +28,7 @@ void render_text(int posx, int posy, std::string s, Uint8 brightness)
         SDL_Texture* tex =text_to_texture(st, brightness);
         int size[2];
         SDL_QueryTexture(tex, nullptr, nullptr, &size[0], &size[1]);
-        SDL_Rect r = {posx*renderzoom, (posy+offset)*renderzoom, size[0], size[1]};
+        SDL_Rect r = {posx*renderzoom, (posy+offset)*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
         SDL_RenderCopy(renderer, tex, nullptr, &r);
 
         offset += size[1]+5;

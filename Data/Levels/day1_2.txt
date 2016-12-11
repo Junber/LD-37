@@ -12,7 +12,6 @@ table,200,110,all_day1_1,20
 couch,192,140,all_day1_1,20
 # rightside
 phone,300,62,phone_day1_1,28
-auto,251,62,thoughts_day1_2,64,,,1
 drawers,315,62,drawers_day1_2,64
 wardrobe,308,150,wardrobe_day1_2,30
 printer,316,250,printer_day1_2,20
