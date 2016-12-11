@@ -7,6 +7,7 @@
 #include <string>
 #include <fstream>
 #include <deque>
+#include <map>
 
 #if defined(WIN32) || defined(_WIN32)
 #define PATH_SEPARATOR "\\"
@@ -25,6 +26,7 @@ extern const int window[2];
 extern const int renderzoom;
 extern std::string level_to_load;
 extern bool active_effects[EFFECT_NUM];
+extern std::map<std::string,bool> script_variables;
 
 SDL_Texture* load_image(std::string s);
 void load_level(std::string name);

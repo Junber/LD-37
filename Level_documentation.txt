@@ -1,1 +1,4 @@
+[condition variable]:[object]
+
+[objects]:
 [imagefile],[posx],[posy],[scriptfile],[hitbox_height],[shadow(optional)],[foreground(optional)],[automatically activates zone(optional)]

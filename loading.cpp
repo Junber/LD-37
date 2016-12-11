@@ -10,6 +10,7 @@ SDL_Window* renderwindow = nullptr;
 SDL_Renderer* renderer = nullptr;
 std::string level_to_load = "";
 bool active_effects[EFFECT_NUM] = {};
+std::map<std::string,bool> script_variables;
 
 std::map<std::string,SDL_Texture*> loaded_textures;
 SDL_Texture* load_image(std::string s)
@@ -28,6 +29,15 @@ void load_level(std::string name)
     {
         std::string line;
         std::getline(file,line);
+
+        auto presplitted = split(line,':');
+
+        if (presplitted.size()>1)
+        {
+            if ((!script_variables.count(presplitted[0]) || !script_variables[presplitted[0]])) continue;
+
+            line = presplitted[1];
+        }
 
         auto splitted = split(line,',');
 

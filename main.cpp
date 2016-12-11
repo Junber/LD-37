@@ -31,11 +31,11 @@ SDL_Texture* overlay;
 void render_shadows(int darkness_color)
 {
     SDL_SetRenderTarget(renderer,overlay);
-    SDL_SetRenderDrawColor(renderer,255,255,255,255);//darkness_color,darkness_color,darkness_color,255);
+    SDL_SetRenderDrawColor(renderer,darkness_color,darkness_color,darkness_color,255);//darkness_color,darkness_color,darkness_color,255);
     SDL_RenderClear(renderer);
     for (Object* o: objects)
     {
-        if (o->throws_shadow) o->render_shadow(darkness_color);
+        if (o->throws_shadow) o->render_shadow(0);
     }
 
     SDL_SetRenderTarget(renderer,nullptr);

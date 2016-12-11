@@ -38,7 +38,7 @@ void execute_script(std::deque<std::string> script)
             }
             else if (splitted[0] == "dialog")
             {
-                d = new Dialog_box(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[3],std::stoi(splitted[4]));
+                d = new Dialog_box(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[3],std::stoi(splitted[4]),splitted[5]);
             }
             else if (splitted[0] == "level")
             {
@@ -62,6 +62,10 @@ void execute_script(std::deque<std::string> script)
                         if (e.type == SDL_KEYDOWN && (e.key.keysym.sym == SDLK_e || e.key.keysym.sym == SDLK_ESCAPE)) breakk = true;
                     }
                 }
+            }
+            else if (splitted[0] == "set")
+            {
+                script_variables[splitted[1]] = std::stoi(splitted[2]);
             }
         }
     }
@@ -339,13 +343,15 @@ void Player::update()
     }
 }
 
-Dialog_box::Dialog_box(int x, int y, std::string t, int speed) : Object(x,y,"Dialog_Box",0,"",false,true)
+Dialog_box::Dialog_box(int x, int y, std::string t, int speed, std::string portrait_image) : Object(x,y,"Dialog_Box",0,"",false,true)
 {
     text = t;
     progress = 0;
     type_speed = speed;
 
     use_camera = false;
+
+    portrait = load_image(portrait_image);
 }
 
 void Dialog_box::update()
@@ -377,6 +383,9 @@ bool Dialog_box::interact(bool touch)
 void Dialog_box::render()
 {
     Object::render();
+
+    SDL_Rect r = {(pos[0]+size[0]/2-portrait_size[0]-7)*renderzoom, (pos[1]-size[1]/2+15)*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
+    SDL_RenderCopy(renderer,portrait,nullptr, &r);
 
     render_text(pos[0]-size[0]/2+10, pos[1]-size[1]/2+10, text.substr(0,progress/type_speed), 0);
 }

@@ -30,8 +30,10 @@ class Dialog_box : public Object
 public:
     std::string text;
     unsigned progress, type_speed;
+    int portrait_size[2];
+    SDL_Texture* portrait;
 
-    Dialog_box(int x, int y, std::string t, int speed);
+    Dialog_box(int x, int y, std::string t, int speed, std::string portrait_image);
     void update();
     void render();
     bool interact(bool touch);
