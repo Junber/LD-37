@@ -1,2 +1,1 @@
-dialog;0;0;My figurines...;3
-dialog;0;0;and some books I've never read.;3
+dialog;0;117;My figurines...*and some books I've never read.;3;me

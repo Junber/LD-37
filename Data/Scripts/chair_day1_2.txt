@@ -1,3 +1,1 @@
-dialog;0;0;My trusty old chair...;3
-dialog;0;0;It's comfortable as hell.;3
-dialog;0;0;I could sit on it for ten hours straight.;3
+dialog;0;117;My trusty old chair...*It's comfortable as hell.*I could sit on it for ten hours straight.;3;me

@@ -11,11 +11,11 @@ tv,200,52,all_day1_1,38
 table,200,110,all_day1_1,20
 couch,192,140,all_day1_1,20
 # rightside
-phone,300,62,phone_day1_1,28
+phone_off,300,60,phone_day1_1,28
 drawers,315,62,drawers_day1_2,64
 wardrobe,308,150,wardrobe_day1_2,30
 printer,316,250,printer_day1_2,20
-pc,308,270,pc_day1_2,44
+pc_off,308,270,pc_day1_2,44
 desk_chair,281,275,all_day1_1,10
 # bett
 shelf,96,200,shelfe_day1_2,0,0,1
