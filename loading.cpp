@@ -55,6 +55,12 @@ std::map<std::string,Mix_Chunk*> loaded_sounds;
 Mix_Chunk* load_sound(std::string s)
 {
     if (!loaded_sounds.count(s)) loaded_sounds[s] = Mix_LoadWAV((std::string("Data")+PATH_SEPARATOR+"Sounds"+PATH_SEPARATOR+s+".wav").c_str());
-    std::cout << Mix_GetError();
     return loaded_sounds[s];
+}
+
+std::map<std::string,Mix_Music*> loaded_music;
+Mix_Music* load_music(std::string s)
+{
+    if (!loaded_music.count(s)) loaded_music[s] = Mix_LoadMUS((std::string("Data")+PATH_SEPARATOR+"Music"+PATH_SEPARATOR+s+".mp3").c_str());
+    return loaded_music[s];
 }

@@ -30,5 +30,6 @@ SDL_Texture* load_image(std::string s);
 void load_level(std::string name);
 void load_script(std::string file, std::deque<std::string>* result);
 Mix_Chunk* load_sound(std::string s);
+Mix_Music* load_music(std::string s);
 
 #endif // _LOADING

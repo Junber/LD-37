@@ -23,9 +23,13 @@ void execute_script(std::deque<std::string> script)
         else
         {
             auto splitted = split(line,',');
-            if (splitted[0] == "play") //I hate string comparisons as much as the next guy but this is a lot easier
+            if (splitted[0] == "sound") //I hate string comparisons as much as the next guy but this is a lot easier
             {
                 play_sound(load_sound(splitted[1]));
+            }
+            else if (splitted[0] == "music")
+            {
+                play_music(load_music(splitted[1]));
             }
             else if (splitted[0] == "dialog")
             {
