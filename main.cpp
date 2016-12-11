@@ -54,7 +54,7 @@ int main(int argc, char* args[])
     font_init();
     random_init();
 
-    renderwindow = SDL_CreateWindow("LD 37", 50, 50, window[0]*renderzoom, window[1]*renderzoom, SDL_WINDOW_SHOWN);
+    renderwindow = SDL_CreateWindow("LD 37", 50, 50, window[0]*renderzoom, window[1]*renderzoom, SDL_WINDOW_SHOWN|SDL_WINDOW_FULLSCREEN);
     renderer = SDL_CreateRenderer(renderwindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
     overlay = SDL_CreateTexture(renderer,SDL_PIXELFORMAT_RGBA8888,SDL_TEXTUREACCESS_TARGET,window[0],window[1]);
@@ -115,6 +115,14 @@ int main(int argc, char* args[])
             if (o != player) o->update();
         }
 
+        for (Object* o: automatic_trigger)
+        {
+            if (o->collision(player->pos[0], player->pos[1], player->size[0], player->size[1], player->non_hitbox_height))
+            {
+                o->interact(true);
+            }
+        }
+
         camera_pos[0] = player->pos[0];
         camera_pos[1] = player->pos[1];
 
@@ -141,7 +149,7 @@ int main(int argc, char* args[])
             o->render();
         }
 
-        //render_shadows(100);
+        render_shadows(100);
 
         for (Object* o: to_delete)
         {

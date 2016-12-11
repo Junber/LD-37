@@ -4,7 +4,7 @@
 #include <map>
 #include <iostream>
 
-const int renderzoom = 4;
+const int renderzoom = 6;
 const int window[2] = {320,180}; //{480,270};//{960,540};
 SDL_Window* renderwindow = nullptr;
 SDL_Renderer* renderer = nullptr;
@@ -32,7 +32,8 @@ void load_level(std::string name)
         auto splitted = split(line,',');
 
         if (line[0]!='#') new Object(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[0],std::stoi(splitted[4]),splitted[3],
-                                     splitted.size()>5?splitted[5]=="1":false,splitted.size()>6?splitted[6]=="1":false);
+                                     splitted.size()>5?splitted[5]=="1":false,splitted.size()>6?splitted[6]=="1":false,
+                                     splitted.size()>7?splitted[7]=="1":false);
     }
 }
 

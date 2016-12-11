@@ -8,7 +8,7 @@
 #include "SDL2_gfx-1.0.1/SDL2_gfxPrimitives.h"
 
 const Uint8* keystate;
-std::deque<Object*> objects, to_delete;
+std::deque<Object*> objects, to_delete, automatic_trigger;
 
 int camera_pos[2] = {0,0};
 
@@ -40,11 +40,16 @@ void execute_script(std::deque<std::string> script)
             {
                 level_to_load = splitted[1];
             }
+            else if (splitted[0] == "teleport")
+            {
+                player->pos[0] = std::stoi(splitted[1]);
+                player->pos[1] = std::stoi(splitted[2]);
+            }
         }
     }
 }
 
-Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground)
+Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground, bool zone)
 {
     pos[0] = x;
     pos[1] = y;
@@ -55,22 +60,24 @@ Object::Object(int x, int y, std::string s, int hitbox_height, std::string scrip
     pos[0] += size[0]/2;
     pos[1] += size[1]/2;
 
-    objects.push_back(this);
-
     load_script(script_file, &script);
 
-    blocks = bool(hitbox_height);
     non_hitbox_height = size[1]-hitbox_height;
 
     foreground=in_foreground;
     use_camera=true;
-
+    is_zone = zone;
     throws_shadow=shadow;
+    blocks = !is_zone&&bool(hitbox_height);
+
+    objects.push_back(this);
+    if (is_zone) automatic_trigger.push_back(this);
 }
 
 Object::~Object()
 {
     remove_it(&objects, this);
+    if (is_zone) remove_it(&automatic_trigger, this);
 }
 
 bool Object::collision(int x, int y, int sx, int sy, int nhh)

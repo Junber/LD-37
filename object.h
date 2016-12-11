@@ -9,11 +9,11 @@ class Object
 {
 public:
     int pos[2], size[2], non_hitbox_height;
-    bool blocks, foreground, throws_shadow, use_camera;
+    bool blocks, foreground, throws_shadow, use_camera, is_zone;
     std::deque<std::string> script;
     SDL_Texture* tex;
 
-    Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground);
+    Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground, bool zone=false);
     virtual ~Object();
     bool collision(int x, int y, int sx, int sy, int nhh);
     virtual void update();
@@ -22,7 +22,7 @@ public:
     virtual bool interact(bool touch);
 };
 
-extern std::deque<Object*> objects, to_delete;
+extern std::deque<Object*> objects, to_delete, automatic_trigger;
 extern int camera_pos[2];
 
 class Dialog_box : public Object
