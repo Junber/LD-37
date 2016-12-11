@@ -18,7 +18,7 @@ printer,316,250,,20
 pc,308,270,,44
 desk_chair,281,275,,10
 # bettd
-shelf,94,200,,0,0,1
+shelf,96,200,,0,0,1
 bed,96,255,,40
 nightstand_off,96,293,,20
 # kitchen
