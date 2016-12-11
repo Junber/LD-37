@@ -31,7 +31,7 @@ public:
     std::string text;
     unsigned progress, type_speed;
     int portrait_size[2];
-    SDL_Texture* portrait;
+    SDL_Texture* portrait[2];
 
     Dialog_box(int x, int y, std::string t, int speed, std::string portrait_image);
     void update();

@@ -1,13 +1,19 @@
 stop_sound
 dialog;0;117;Hello darling.;3;mom
 #
-dialog;0;117;Hi mum...*It's been a while, I guess.*What is it?;3;me
+dialog;0;117;Hi mum...*It's been a while, I guess.;3;me
+#
+dialog;0;117;What is it?;3;me
 #
 dialog;0;117;We haven't talked for two months.*Don't you understand that we are worried?;3;mom
 #
-dialog;0;117;There is nothing to be worried about*I'm fine.*I don't mind living on my own.;3;me
+dialog;0;117;There is nothing to be worried about*I'm fine.;3;me
 #
-dialog;0;117;Don't you get lonely?*I can visit you anytime.*I could help you with your chores..;3;mom
+dialog;0;117;I don't mind living on my own.;3;me
+#
+dialog;0;117;Don't you get lonely?*I can visit you anytime.;3;mom
+#
+dialog;0;117;I could help you with your chores..;3;mom
 #
 dialog;0;117;Thanks but no, mum.;3;me
 #
@@ -20,16 +26,31 @@ dialog;0;117;When was the last time you left your room?;3;mom
 dialog;0;117;Look mum, I don't have time for this.*I -;3;me
 #
 dialog;0;117;Then what are you doing all day?!*I bet you have not even tried to find a job!;3;mom
-dialog*Me and your dad - we want to support you*but paying your rental fee is a problem for us.*You know we don't earn -;0;0;;3;mom
 #
-dialog;0;117;I can't leave my room!*I CAN'T!*They would...;3;me
+dialog;0;117;Me and your dad - we want to support you*but paying your rental fee is a problem for us.;3;mom
+#
+dialog;0;117;You know we don't earn -;3;mom
+#
+dialog;0;117;I can't leave my room!*I CAN'T!;3;me
+#
+dialog;0;117;They would...;3;me
 #
 dialog;0;117;They? Who would do what?;3;mom
 #
-dialog;0;117;Y-you wouldn't understand.*Anyway*I'm fine.;3;me
+dialog;0;117;Y-you wouldn't understand.;3;me
+#
+dialog;0;117;Anyway*I'm fine.;3;me
 #
 #hangs up
 #
-dialog;0;117;The organisation..*They watch me.*They track every single step of me.*The phone...*They probably heard all of it.*Dammit!*I should get rid of it.*There is a garbage disposer in the sink...;3;me_thinking
+dialog;0;117;The organisation..*They watch me.;3;me_thinking
+#
+dialog;0;117;They track every single step of me.*The phone...;3;me_thinking
+#
+dialog;0;117;They probably heard all of it.;3;me_thinking
+#
+dialog;0;117;Dammit!*I should get rid of it.;3;me_thinking
+#
+dialog;0;117;There is a garbage disposer in the sink...;3;me_thinking
 #
 level;day1_2

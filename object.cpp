@@ -351,7 +351,10 @@ Dialog_box::Dialog_box(int x, int y, std::string t, int speed, std::string portr
 
     use_camera = false;
 
-    portrait = load_image(portrait_image);
+    portrait[0] = load_image(portrait_image+"1");
+    portrait[1] = load_image(portrait_image+"2");
+
+    SDL_QueryTexture(portrait[0], nullptr, nullptr, &portrait_size[0], &portrait_size[1]);
 }
 
 void Dialog_box::update()
@@ -384,8 +387,9 @@ void Dialog_box::render()
 {
     Object::render();
 
-    SDL_Rect r = {(pos[0]+size[0]/2-portrait_size[0]-7)*renderzoom, (pos[1]-size[1]/2+15)*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
-    SDL_RenderCopy(renderer,portrait,nullptr, &r);
+    SDL_Rect r = {(pos[0]-size[0]/2+15)*renderzoom, (pos[1]+size[1]/2-portrait_size[0]-6)*renderzoom, portrait_size[0]*renderzoom, portrait_size[1]*renderzoom};
 
-    render_text(pos[0]-size[0]/2+10, pos[1]-size[1]/2+10, text.substr(0,progress/type_speed), 0);
+    SDL_RenderCopy(renderer,portrait[(progress < text.size()*type_speed)*(progress/8)%2],nullptr, &r);
+
+    render_text(pos[0]-size[0]/2+20+portrait_size[0], pos[1]-size[1]/2+10, text.substr(0,progress/type_speed), 0);
 }
