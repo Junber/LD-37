@@ -141,7 +141,7 @@ int main(int argc, char* args[])
             o->render();
         }
 
-        render_shadows(100);
+        //render_shadows(100);
 
         for (Object* o: to_delete)
         {
