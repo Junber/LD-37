@@ -13,8 +13,11 @@ void sound_init()
 int looping_channel;
 void play_sound(Mix_Chunk* s, bool loops)
 {
-    if (loops) looping_channel = Mix_PlayChannel(-1, s, -1);
-    else if (s!= nullptr) Mix_PlayChannel(-1, s, 0);
+    if (s!= nullptr)
+    {
+        if (loops) looping_channel = Mix_PlayChannel(-1, s, -1);
+        else Mix_PlayChannel(-1, s, 0);
+    }
 }
 
 void stop_sound()

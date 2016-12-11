@@ -29,8 +29,6 @@ void load_level(std::string name)
         std::string line;
         std::getline(file,line);
 
-        std::cout << line << "\n";
-
         auto splitted = split(line,',');
 
         if (line[0]!='#') new Object(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[0],std::stoi(splitted[4]),splitted[3],

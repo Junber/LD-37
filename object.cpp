@@ -25,7 +25,7 @@ void execute_script(std::deque<std::string> script)
             auto splitted = split(line,';');
             if (splitted[0] == "sound") //I hate string comparisons as much as the next guy but this is a lot easier
             {
-                play_sound(load_sound(splitted[1]),(splitted.size()>2 && splitted[2]=="2"));
+                play_sound(load_sound(splitted[1]),(splitted.size()>2 && splitted[2]=="1"));
             }
             else if (splitted[0] == "stop_sound")
             {
@@ -294,6 +294,10 @@ void Object::render_shadow(int darkness_color)
 Player::Player() : Object(20,20,"front1",4,"",false,false)
 {
     anim_progress = 0;
+
+    load_script("start",&script);
+    execute_script(script);
+    script.clear();
 }
 
 void Player::update()

@@ -1,3 +1,4 @@
+stop_sound
 dialog;0;0;Hello darling.;3;mom
 #
 dialog;0;0;Hi mum...;3;me
