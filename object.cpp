@@ -154,14 +154,16 @@ void Object::render()
 
 void Object::render_shadow(int darkness_color)
 {
+    const int lightsource[2] = {player->pos[0], player->pos[1]+player->size[1]/2};
+
     Sint16 vx[7], vy[7];
     bool pentagon = false;
     int add_corners=0;
     SDL_SetRenderDrawColor(renderer,darkness_color,darkness_color,darkness_color,255);
 
-    if (player->pos[0] <= pos[0]+size[0]/2 && player->pos[0] >= pos[0]-size[0]/2)
+    if (lightsource[0] <= pos[0]+size[0]/2 && lightsource[0] >= pos[0]-size[0]/2)
     {
-        if (player->pos[1]<pos[1])
+        if (lightsource[1]<pos[1])
         {
             vx[0] = pos[0]+size[0]/2+size[0]%2;
             vy[0] = pos[1]-size[1]/2+non_hitbox_height;
@@ -176,9 +178,9 @@ void Object::render_shadow(int darkness_color)
             vy[1] = pos[1]+size[1]/2+size[1]%2;
         }
     }
-    else if (player->pos[1] <= pos[1]+size[1]/2 && player->pos[1] >= pos[1]-size[1]/2+non_hitbox_height)
+    else if (lightsource[1] <= pos[1]+size[1]/2 && lightsource[1] >= pos[1]-size[1]/2+non_hitbox_height)
     {
-        if (player->pos[0]<pos[0])
+        if (lightsource[0]<pos[0])
         {
             vx[0] = pos[0]-size[0]/2;
             vy[0] = pos[1]-size[1]/2+non_hitbox_height;
@@ -197,9 +199,9 @@ void Object::render_shadow(int darkness_color)
     {
         pentagon = true;
 
-        if ((player->pos[0] < pos[0]) == (player->pos[1] < pos[1]))
+        if ((lightsource[0] < pos[0]) == (lightsource[1] < pos[1]))
         {
-            int m = (player->pos[0] < pos[0])?-1:1;
+            int m = (lightsource[0] < pos[0])?-1:1;
 
             vx[0] = pos[0]-size[0]/2;
             vy[0] = pos[1]+size[1]/2+size[1]%2;
@@ -210,7 +212,7 @@ void Object::render_shadow(int darkness_color)
         }
         else
         {
-            int m = (player->pos[0] < pos[0])?-1:1;
+            int m = (lightsource[0] < pos[0])?-1:1;
 
             vx[0] = pos[0]-size[0]/2;
             vy[0] = pos[1]-size[1]/2+non_hitbox_height;
@@ -224,7 +226,7 @@ void Object::render_shadow(int darkness_color)
     int wall[2];
     for (int i=0; i<=(pentagon?2:1); i+=(pentagon?2:1))
     {
-        int dx = vx[i]-player->pos[0], dy = vy[i]-player->pos[1];
+        int dx = vx[i]-lightsource[0], dy = vy[i]-lightsource[1];
         float dratio = float_abs(dy?float(dx)/dy:1);
         if (dratio < 0.0001) dratio=0;
 
