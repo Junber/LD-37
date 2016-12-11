@@ -4,8 +4,8 @@
 #include <map>
 #include <iostream>
 
-const int renderzoom = 3;
-const int window[2] = {384,216}; //{480,270};//{960,540};
+const int renderzoom = 4;
+const int window[2] = {320,180}; //{480,270};//{960,540};
 SDL_Window* renderwindow = nullptr;
 SDL_Renderer* renderer = nullptr;
 std::string level_to_load = "";
