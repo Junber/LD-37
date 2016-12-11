@@ -9,6 +9,7 @@
 #include "loading.h"
 #include "font.h"
 #include "sound.h"
+#include "base_functions.h"
 
 #ifndef _STATIC
 void *__gxx_personality_v0;
@@ -36,12 +37,8 @@ void render_shadows(int darkness_color)
     {
         o->render_shadow(darkness_color);
     }
-    SDL_SetRenderTarget(renderer,nullptr);
-
-    SDL_RenderCopy(renderer,overlay,nullptr,nullptr);
 
     SDL_SetRenderTarget(renderer,nullptr);
-
     SDL_RenderCopy(renderer,overlay,nullptr,nullptr);
 }
 
@@ -55,6 +52,7 @@ int main(int argc, char* args[])
     IMG_Init(IMG_INIT_PNG);
     sound_init();
     font_init();
+    random_init();
 
     renderwindow = SDL_CreateWindow("LD 37", 50, 50, window[0]*renderzoom, window[1]*renderzoom, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(renderwindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
@@ -109,7 +107,7 @@ int main(int argc, char* args[])
         }
 
         SDL_SetRenderDrawColor(renderer,0,0,0,255);
-        SDL_RenderClear(renderer);
+        if (!active_effects[trails]) SDL_RenderClear(renderer);
 
         player->update();
         for (Object* o: objects)
@@ -126,6 +124,14 @@ int main(int argc, char* args[])
         else if (camera_pos[1] > bg_size[1]+9) camera_pos[1] = bg_size[1]+9;
 
         SDL_Rect r = {(8-camera_pos[0]+window[0]/2)*renderzoom, (72-camera_pos[1]+window[1]/2)*renderzoom, bg_size[0]*renderzoom, bg_size[1]*renderzoom};
+
+        if (active_effects[trails])
+        {
+            SDL_SetTextureAlphaMod(bg,20);
+            SDL_SetTextureBlendMode(bg,SDL_BLENDMODE_BLEND);
+        }
+        if (active_effects[random_bg_color]) SDL_SetTextureColorMod(bg,random(0,255),random(0,255),random(0,255));
+
         SDL_RenderCopy(renderer,bg,nullptr,&r);
 
         std::stable_sort(objects.begin(),objects.end(),comp);

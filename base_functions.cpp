@@ -1,8 +1,24 @@
 #include "base_functions.h"
 #include <algorithm>
+#include <random>
+#include <ctime>
 
 class Object;
 template void remove_it<Object*>(std::deque<Object*>*, Object*);
+
+std::default_random_engine generator;
+int random(int x, int y)
+{
+    std::uniform_int_distribution<int> distribution(x,y);
+    return distribution(generator);
+}
+
+void random_init()
+{
+    generator.seed(time(nullptr));
+    random(0,1);
+}
+
 
 int sign(int x)
 {

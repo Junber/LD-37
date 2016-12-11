@@ -14,11 +14,17 @@
 #define PATH_SEPARATOR "/"
 #endif
 
+enum effects
+{
+    trails,random_bg_color,EFFECT_NUM
+};
+
 extern SDL_Window* renderwindow;
 extern SDL_Renderer* renderer;
 extern const int window[2];
 extern const int renderzoom;
 extern std::string level_to_load;
+extern bool active_effects[EFFECT_NUM];
 
 SDL_Texture* load_image(std::string s);
 void load_level(std::string name);

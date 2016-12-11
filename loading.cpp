@@ -9,6 +9,7 @@ const int window[2] = {480,270};//{960,540};
 SDL_Window* renderwindow = nullptr;
 SDL_Renderer* renderer = nullptr;
 std::string level_to_load = "";
+bool active_effects[EFFECT_NUM] = {};
 
 std::map<std::string,SDL_Texture*> loaded_textures;
 SDL_Texture* load_image(std::string s)

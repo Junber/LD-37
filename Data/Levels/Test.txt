@@ -1,4 +1,4 @@
-Test,30,30,Test,2
+pc,100,100,Test,2
 top_wall,0,0,,15
 left_wall,0,72,,470
 right_wall,456,72,,470

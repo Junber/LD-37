@@ -119,6 +119,7 @@ void Object::render()
 {
     SDL_Rect r={(window[0]/2+pos[0]-size[0]/2-camera_pos[0])*renderzoom, (window[1]/2+pos[1]-size[1]/2-camera_pos[1])*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
 
+    if (active_effects[trails]) SDL_SetTextureAlphaMod(tex,50);
     SDL_RenderCopy(renderer, tex, nullptr, &r);
 }
 
