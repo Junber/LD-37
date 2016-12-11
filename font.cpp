@@ -8,7 +8,7 @@ TTF_Font* font;
 void font_init()
 {
     TTF_Init();
-    font = TTF_OpenFont((std::string("Data")+PATH_SEPARATOR+"Fonts"+PATH_SEPARATOR+"Yantramanav-Medium.ttf").c_str(),15);
+    font = TTF_OpenFont((std::string("Data")+PATH_SEPARATOR+"Fonts"+PATH_SEPARATOR+"Yantramanav-Medium.ttf").c_str(),12);
 }
 
 std::map<std::pair<std::string,Uint8>,SDL_Texture*> loaded_texts;

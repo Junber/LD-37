@@ -144,12 +144,9 @@ int main(int argc, char* args[])
 
         std::stable_sort(objects.begin(),objects.end(),comp);
 
-        for (Object* o: objects)
-        {
-            o->render();
-        }
-
+        for (Object* o: objects) if (o->use_camera) o->render();
         render_shadows(100);
+        for (Object* o: objects) if (!o->use_camera) o->render();
 
         for (Object* o: to_delete)
         {

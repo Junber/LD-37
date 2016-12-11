@@ -378,5 +378,5 @@ void Dialog_box::render()
 {
     Object::render();
 
-    render_text(pos[0]-size[0]/2+10, pos[1]-size[1]/2+10, text.substr(0,progress/type_speed),255);
+    render_text(pos[0]-size[0]/2+10, pos[1]-size[1]/2+10, text.substr(0,progress/type_speed), 0);
 }
