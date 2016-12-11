@@ -4,7 +4,7 @@
 #include <map>
 #include <iostream>
 
-const int renderzoom = 6;
+const int renderzoom = 5;
 const int window[2] = {320,180}; //{480,270};//{960,540};
 SDL_Window* renderwindow = nullptr;
 SDL_Renderer* renderer = nullptr;

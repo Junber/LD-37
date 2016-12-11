@@ -40,9 +40,9 @@ public:
 class Player: public Object
 {
 public:
-    int lastpos[2];
+    int lastpos[2], anim_progress;
 
-    Player() : Object(20,20,"player",4,"",false,false) {}
+    Player();
     void update();
 };
 extern Player* player;

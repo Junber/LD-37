@@ -22,7 +22,7 @@ void execute_script(std::deque<std::string> script)
         if (d) d->script.push_back(line);
         else
         {
-            auto splitted = split(line,',');
+            auto splitted = split(line,';');
             if (splitted[0] == "sound") //I hate string comparisons as much as the next guy but this is a lot easier
             {
                 play_sound(load_sound(splitted[1]));
@@ -146,7 +146,7 @@ bool Object::interact(bool touch)
 
 void Object::render()
 {
-    SDL_Rect r={(pos[0]+use_camera*(window[0]/2-size[0]/2-camera_pos[0]))*renderzoom, (pos[1]+use_camera*(window[1]/2-size[1]/2-camera_pos[1]))*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
+    SDL_Rect r={(pos[0]-size[0]/2+use_camera*(window[0]/2-camera_pos[0]))*renderzoom, (pos[1]-size[1]/2+use_camera*(window[1]/2-camera_pos[1]))*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
 
     if (active_effects[trails]) SDL_SetTextureAlphaMod(tex,50);
     SDL_RenderCopy(renderer, tex, nullptr, &r);
@@ -287,18 +287,35 @@ void Object::render_shadow(int darkness_color)
     filledPolygonRGBA(renderer,vx,vy,(pentagon?5:4)+add_corners,darkness_color,darkness_color,darkness_color,255);
 }
 
+Player::Player() : Object(20,20,"player",4,"",false,false)
+{
+    anim_progress = 0;
+}
+
 void Player::update()
 {
     lastpos[0]=pos[0]; lastpos[1]=pos[1];
 
     keystate = SDL_GetKeyboardState(nullptr);
 
-    int move_speed = 3;
+    int move_speed = 1;
 
     if (keystate[SDL_SCANCODE_D]) pos[0]+=move_speed;
     if (keystate[SDL_SCANCODE_A]) pos[0]-=move_speed;
     if (keystate[SDL_SCANCODE_S]) pos[1]+=move_speed;
     if (keystate[SDL_SCANCODE_W]) pos[1]-=move_speed;
+
+    if (pos[0]!=lastpos[0] || pos[1]!=lastpos[1])
+    {
+        const int anim_speed=5;
+        anim_progress++;
+        anim_progress%=6*anim_speed;
+        tex = load_image("front"+std::to_string(anim_progress/anim_speed+1));
+    }
+    else
+    {
+        tex = load_image("front1");
+    }
 }
 
 Dialog_box::Dialog_box(int x, int y, std::string t, int speed) : Object(x,y,"Dialog_Box",0,"",false,true)
@@ -340,5 +357,5 @@ void Dialog_box::render()
 {
     Object::render();
 
-    render_text(pos[0]+10, pos[1]+10, text.substr(0,progress/type_speed),255);
+    render_text(pos[0]-size[0]/2+10, pos[1]-size[1]/2+10, text.substr(0,progress/type_speed),255);
 }
