@@ -1,0 +1,4 @@
+dialog;0;117;I feel sick...;3;me
+dialog;0;117;What is happening to me?;3;me
+dialog;0;117;Maybe I have caught a cold.;3;me
+dialog;0;117;I should rest for a while.;3;me

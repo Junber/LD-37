@@ -1,0 +1,12 @@
+dialog;0;117;What is this?;3;me
+dialog;0;117;That's not what I wrote some days ago.;3;me
+dialog;0;117;Where is the part about their possible hideout locations...;3;me
+dialog;0;117;and the part concerning phone tapping.;3;me
+dialog;0;117;Did I alter the information?;3;me
+dialog;0;117;No.;3;me
+dialog;0;117;That's impossible.;3;me
+dialog;0;117;But... who?;3;me
+# when finished
+dialog;0;117;Who did this?;3;me
+dialog;0;117;It couldn't have been...;3;me
+dialog;0;117;them?;3;me

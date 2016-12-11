@@ -1,0 +1,2 @@
+dialog;0;117;There is barely anything in there.;3;me
+dialog;0;117;Marc didn't bring any food lately.;3;me

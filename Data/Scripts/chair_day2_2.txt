@@ -1,0 +1,2 @@
+dialog;0;117;...;3;me
+dialog;0;117;Okay, maybe it's not THAT comfortable.;3;me
