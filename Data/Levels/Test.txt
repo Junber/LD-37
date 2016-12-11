@@ -1,14 +1,22 @@
-pc,100,100,Test,2
-top_wall,0,0,,15
-left_wall,0,72,,470
-right_wall,456,72,,470
-bot_wall,0,520,,50
-mid_wall,120,180,,160
+# walls
+top_wall,0,0,,15,1
+left_wall,0,72,,470,1
+right_wall,456,72,,470,1
+bot_wall,0,364,,50,1
+mid_wall,94,180,,160,1
+# topside
 whiteboard,110,20,,0
 chair,134,80,,10
 tv,280,52,,38
 drawers,424,62,,10
 table,280,110,,20
 couch,272,140,,20
+# rightside
 wardrobe,432,160,,20
-printer,440,260,,20
+printer,440,270,,20
+pc,432,290,,20
+desk_chair,405,295,,20
+shelf,134,200,,50
+bed,136,260,,40
+nightstand_off,136,298,,20
+sink,70,300,,20
