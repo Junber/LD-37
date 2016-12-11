@@ -9,11 +9,11 @@ class Object
 {
 public:
     int pos[2], size[2], non_hitbox_height;
-    bool blocks, foreground, throws_shadow;
+    bool blocks, foreground, throws_shadow, use_camera;
     std::deque<std::string> script;
     SDL_Texture* tex;
 
-    Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow);
+    Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground);
     virtual ~Object();
     bool collision(int x, int y, int sx, int sy, int nhh);
     virtual void update();
@@ -42,7 +42,7 @@ class Player: public Object
 public:
     int lastpos[2];
 
-    Player() : Object(20,20,"player",4,"",false) {}
+    Player() : Object(20,20,"player",4,"",false,false) {}
     void update();
 };
 extern Player* player;

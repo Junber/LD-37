@@ -29,6 +29,7 @@ void execute_script(std::deque<std::string> script)
             }
             else if (splitted[0] == "music")
             {
+                Mix_FadeOutMusic(1000);
                 play_music(load_music(splitted[1]));
             }
             else if (splitted[0] == "dialog")
@@ -43,7 +44,7 @@ void execute_script(std::deque<std::string> script)
     }
 }
 
-Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow)
+Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground)
 {
     pos[0] = x;
     pos[1] = y;
@@ -61,7 +62,8 @@ Object::Object(int x, int y, std::string s, int hitbox_height, std::string scrip
     blocks = bool(hitbox_height);
     non_hitbox_height = size[1]-hitbox_height;
 
-    foreground=false;
+    foreground=in_foreground;
+    use_camera=true;
 
     throws_shadow=shadow;
 }
@@ -123,7 +125,7 @@ bool Object::interact(bool touch)
 
 void Object::render()
 {
-    SDL_Rect r={(window[0]/2+pos[0]-size[0]/2-camera_pos[0])*renderzoom, (window[1]/2+pos[1]-size[1]/2-camera_pos[1])*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
+    SDL_Rect r={(pos[0]+use_camera*(window[0]/2-size[0]/2-camera_pos[0]))*renderzoom, (pos[1]+use_camera*(window[1]/2-size[1]/2-camera_pos[1]))*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
 
     if (active_effects[trails]) SDL_SetTextureAlphaMod(tex,50);
     SDL_RenderCopy(renderer, tex, nullptr, &r);
@@ -276,18 +278,22 @@ void Player::update()
     if (keystate[SDL_SCANCODE_W]) pos[1]-=move_speed;
 }
 
-Dialog_box::Dialog_box(int x, int y, std::string t, int speed) : Object(x,y,"Dialog_Box",0,"",false)
+Dialog_box::Dialog_box(int x, int y, std::string t, int speed) : Object(x,y,"Dialog_Box",0,"",false,true)
 {
     text = t;
     progress = 0;
     type_speed = speed;
 
-    foreground = true;
+    use_camera = false;
 }
 
 void Dialog_box::update()
 {
-    if (progress < text.size()*type_speed) progress++;
+    if (progress < text.size()*type_speed)
+    {
+        progress++;
+        if (!(progress%type_speed)) play_sound(load_sound("text"));
+    }
 }
 
 bool Dialog_box::interact(bool touch)

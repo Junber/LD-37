@@ -119,9 +119,9 @@ int main(int argc, char* args[])
         camera_pos[1] = player->pos[1];
 
         if (camera_pos[0] < window[0]/2-5) camera_pos[0] = window[0]/2-5;
-        else if (camera_pos[0] > bg_size[0]) camera_pos[0] = bg_size[0];
+        else if (camera_pos[0] > bg_size[0]-window[0]/2+20) camera_pos[0] = bg_size[0]-window[0]/2+20;
         if (camera_pos[1] < window[1]/2-5) camera_pos[1] = window[1]/2-5;
-        else if (camera_pos[1] > bg_size[1]+9) camera_pos[1] = bg_size[1]+9;
+        else if (camera_pos[1] > bg_size[1]-window[1]/2+135) camera_pos[1] = bg_size[1]-window[1]/2+135;
 
         SDL_Rect r = {(8-camera_pos[0]+window[0]/2)*renderzoom, (72-camera_pos[1]+window[1]/2)*renderzoom, bg_size[0]*renderzoom, bg_size[1]*renderzoom};
 
