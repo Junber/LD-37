@@ -88,6 +88,7 @@ Object::Object(int x, int y, std::string s, int hitbox_height, std::string scrip
 
     foreground=in_foreground;
     use_camera=true;
+    persistent = false;
     is_zone = zone;
     throws_shadow=shadow;
     blocks = !is_zone&&bool(hitbox_height);
@@ -298,6 +299,7 @@ void Object::render_shadow(int darkness_color)
 Player::Player() : Object(20,20,"front1",4,"",false,false)
 {
     anim_progress = 0;
+    persistent = true;
 
     load_script("start",&script);
     execute_script(script);
@@ -350,6 +352,7 @@ Dialog_box::Dialog_box(int x, int y, std::string t, int speed, std::string portr
     type_speed = speed;
 
     use_camera = false;
+    persistent = true;
 
     portrait[0] = load_image(portrait_image+"1");
     portrait[1] = load_image(portrait_image+"2");

@@ -1,4 +1,6 @@
 stop_sound
+level;day1_2
+#
 dialog;0;117;Hello darling.;3;mom
 #
 dialog;0;117;Hi mum...*It's been a while, I guess.;3;me
@@ -52,5 +54,3 @@ dialog;0;117;They probably heard all of it.;3;me_thinking
 dialog;0;117;Dammit!*I should get rid of it.;3;me_thinking
 #
 dialog;0;117;There is a garbage disposer in the sink...;3;me_thinking
-#
-level;day1_2

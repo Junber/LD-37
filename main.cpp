@@ -159,7 +159,7 @@ int main(int argc, char* args[])
             unsigned ignored=0;
             while (objects.size() > ignored)
             {
-                if (objects[ignored] == player) ignored++;
+                if (objects[ignored]->persistent) ignored++;
                 else delete objects[ignored];
             }
 

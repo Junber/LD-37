@@ -11,7 +11,7 @@ tv,200,52,,38
 table,200,110,,20
 couch,192,140,,20
 # rightside
-phone_on,300,60,,28,,1
+phone_on,300,60,,28
 drawers,315,62,draws_day2_2,64
 wardrobe,308,150,wardrobe_day2_2,30
 printer,316,250,printer_day2_2,20
