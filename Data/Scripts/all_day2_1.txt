@@ -1,1 +1,1 @@
-dialog;0;117;I should at least look who's at the door..;3;me
+dialog;0;117;I should at least look who's at the door..;3;me_thinking

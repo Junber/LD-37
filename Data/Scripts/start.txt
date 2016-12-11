@@ -1,1 +1,2 @@
 sound;phone;1
+set;phone_ok;1

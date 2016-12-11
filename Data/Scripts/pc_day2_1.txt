@@ -1,1 +1,1 @@
-dialog;0;117;I don't have time for this now.;3;me
+dialog;0;117;I don't have time for this now.;3;me_thinking

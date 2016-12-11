@@ -1,0 +1,1 @@
+dialog;0;117;I need to get rid of the phone.;3;me_thinking

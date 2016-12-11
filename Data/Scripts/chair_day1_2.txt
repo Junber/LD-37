@@ -1,2 +1,2 @@
-dialog;0;117;My trusty old chair...;3;me
-dialog;0;117;It's comfortable as hell.*I could sit on it for ten hours straight.;3;me
+dialog;0;117;My trusty old chair...;3;me_thinking
+dialog;0;117;It's comfortable as hell.*I could sit on it for ten hours straight.;3;me_thinking

@@ -1,1 +1,1 @@
-dialog;0;117;Finally he's gone.;3;me
+dialog;0;117;Finally he's gone.;3;me_thinking

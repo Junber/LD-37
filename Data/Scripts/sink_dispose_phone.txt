@@ -1,0 +1,3 @@
+sound;phone_in_disposer
+set;phone_ok;0
+set;phone_not_ok;1

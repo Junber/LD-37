@@ -1,5 +1,6 @@
 stop_sound
 level;day1_2
+play;pick_up_phone
 #
 dialog;0;117;Hello darling.;3;mom
 #

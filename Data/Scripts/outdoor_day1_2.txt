@@ -1,1 +1,1 @@
-dialog;0;117;They wait outside.*I must not leave this room...;3;me
+dialog;0;117;They wait outside.*I must not leave this room...;3;me_thinking

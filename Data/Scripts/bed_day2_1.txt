@@ -1,1 +1,1 @@
-dialog;0;117;Why does always someone have to wake me up like this?;3;me
+dialog;0;117;Why does always someone have to wake me up like this?;3;me_thinking

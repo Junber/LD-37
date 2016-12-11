@@ -1,1 +1,1 @@
-dialog;0;117;What a mess.*I should stop throwing trash on there.;3;me
+dialog;0;117;What a mess.*I should stop throwing trash on there.;3;me_thinking

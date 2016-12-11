@@ -2,7 +2,7 @@
 top_wall,0,0,,15,
 left_wall,0,72,,470,1
 right_wall,332,72,,284,
-bot_wall,0,334,,50,1
+bot_wall,0,334,,50,0
 mid_wall,80,180,,184,1
 # topside
 whiteboard,100,20,all_day2_1,0

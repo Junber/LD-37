@@ -1,1 +1,1 @@
-dialog;0;117;Phew, I'm exhausted!*Fighting the vile organisation sure is a tiresome task...;3;me
+dialog;0;117;Phew, I'm exhausted!*Fighting the vile organisation sure is a tiresome task...;3;me_thinking

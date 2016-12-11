@@ -1,1 +1,1 @@
-dialog;0;117;My figurines...*and some books I've never read.;3;me
+dialog;0;117;My figurines...*and some books I've never read.;3;me_thinking

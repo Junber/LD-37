@@ -1,1 +1,1 @@
-dialog;0;117;Unfortunately this won't make the phone stop ringing.;3;me
+dialog;0;117;Unfortunately this won't make the phone stop ringing.;3;me_thinking
