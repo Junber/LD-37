@@ -44,7 +44,7 @@ void render_shadows(int darkness_color)
 
 bool comp(Object* a, Object* b)
 {
-    return (!a->foreground && (b->foreground || a->pos[1] < b->pos[1]));
+    return (!a->foreground && (b->foreground || (a->pos[1]+a->size[1]/2 < b->pos[1]+b->size[1]/2)));
 }
 
 int main(int argc, char* args[])
