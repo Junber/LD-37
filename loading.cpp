@@ -31,7 +31,7 @@ void load_level(std::string name)
 
         auto splitted = split(line,',');
 
-        new Object(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[0],std::stoi(splitted[4]),splitted[3]);
+        new Object(std::stoi(splitted[1]),std::stoi(splitted[2]),splitted[0],std::stoi(splitted[4]),splitted[3],splitted.size()>5?true:false);
     }
 }
 

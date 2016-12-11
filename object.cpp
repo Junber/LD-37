@@ -39,7 +39,7 @@ void execute_script(std::deque<std::string> script)
     }
 }
 
-Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file)
+Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow)
 {
     pos[0] = x;
     pos[1] = y;
@@ -58,6 +58,8 @@ Object::Object(int x, int y, std::string s, int hitbox_height, std::string scrip
     non_hitbox_height = size[1]-hitbox_height;
 
     foreground=false;
+
+    throws_shadow=shadow;
 }
 
 Object::~Object()
@@ -196,13 +198,13 @@ void Object::render_shadow(int darkness_color)
     for (int i=0; i<=(pentagon?2:1); i+=(pentagon?2:1))
     {
         int dx = vx[i]-player->pos[0], dy = vy[i]-player->pos[1];
-        float dratio = abs(dy?float(dx)/dy:1);
+        float dratio = float_abs(dy?float(dx)/dy:1);
         if (dratio < 0.0001) dratio=0;
 
         int lengthx = abs(vx[i]-(camera_pos[0]+sign(dx)*window[0]/2)), lengthy = abs(vy[i]-(camera_pos[1]+sign(dy)*window[1]/2));
 
         bool choose_x = (!dy || (dx && lengthy>(lengthx/dratio)));
-        float length = choose_x?float(lengthx)/dratio:lengthy;
+        float length = choose_x?(float(lengthx)/dratio):lengthy;
         vx[i] += -camera_pos[0]+window[0]/2;
         vy[i] += -camera_pos[1]+window[1]/2;
 
@@ -244,7 +246,7 @@ void Object::render_shadow(int darkness_color)
             }
         }
 
-        vx[(pentagon?(4-i/2):(3-i))] = vx[i]+length*sign(dx)*dratio;
+        vx[(pentagon?(4-i/2):(3-i))] = vx[i]+(length*sign(dx)*dratio);
         vy[(pentagon?(4-i/2):(3-i))] = vy[i]+(dy?(length*sign(dy)):0);
     }
     if (pentagon)
@@ -270,7 +272,7 @@ void Player::update()
     if (keystate[SDL_SCANCODE_W]) pos[1]-=move_speed;
 }
 
-Dialog_box::Dialog_box(int x, int y, std::string t, int speed) : Object(x,y,"Dialog_Box",0,"")
+Dialog_box::Dialog_box(int x, int y, std::string t, int speed) : Object(x,y,"Dialog_Box",0,"",false)
 {
     text = t;
     progress = 0;

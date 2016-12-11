@@ -35,7 +35,7 @@ void render_shadows(int darkness_color)
     SDL_RenderClear(renderer);
     for (Object* o: objects)
     {
-        o->render_shadow(darkness_color);
+        if (o->throws_shadow) o->render_shadow(darkness_color);
     }
 
     SDL_SetRenderTarget(renderer,nullptr);
@@ -141,7 +141,7 @@ int main(int argc, char* args[])
             o->render();
         }
 
-        //render_shadows(100);
+        render_shadows(100);
 
         for (Object* o: to_delete)
         {

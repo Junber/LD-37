@@ -19,6 +19,10 @@ void random_init()
     random(0,1);
 }
 
+float float_abs(float x)
+{
+    return (x<0?-x:x);
+}
 
 int sign(int x)
 {
