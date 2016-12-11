@@ -66,7 +66,7 @@ int main(int argc, char* args[])
     int bg_size[2];
     SDL_QueryTexture(bg,nullptr,nullptr,&bg_size[0],&bg_size[1]);
 
-    load_level("Test");
+    load_level("start");
 
     SDL_Event e;
 	while (!breakk)
