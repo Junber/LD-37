@@ -1,0 +1,2 @@
+dialog;0;0;Phew, I'm exhausted!;3
+dialog;0;0;Fighting the vile organisation sure is a tiresome task...;3

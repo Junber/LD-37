@@ -1,0 +1,2 @@
+dialog;0;0;I can't even properly boil water.;3
+dialog;0;0;That's why I only got a microwave.;3

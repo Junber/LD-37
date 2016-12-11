@@ -1,0 +1,6 @@
+dialog;0;0;Let's take a look at the "conspiracy detection whiteboard".;3
+closeup;whiteboard_screen
+dialog;0;0;Curse these fiends.
+One day I will reveal their hideous deeds...;3
+dialog;0;0;And maybe...;3
+dialog;0;0;I will be able to go out again..;3

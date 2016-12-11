@@ -1,0 +1,2 @@
+dialog;0;0;They wait outside.;3
+dialog;0;0;I must not leave this room...;3

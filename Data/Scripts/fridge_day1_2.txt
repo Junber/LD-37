@@ -1,0 +1,3 @@
+dialog;0;0;Some cheese..;3
+dialog;0;0;Some milk..;3
+dialog;0;0;Beer...;3

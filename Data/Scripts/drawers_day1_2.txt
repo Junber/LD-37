@@ -1,0 +1,2 @@
+dialog;0;0;What a mess.;3
+dialog;0;0;I should stop throwing trash on there.;3

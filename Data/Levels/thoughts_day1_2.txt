@@ -1,0 +1,8 @@
+dialog;0;0;The organisation..;3;me_thinking
+dialog;0;0;They watch me.;3;me_thinking
+dialog;0;0;They track every single step of me.;3;me_thinking
+dialog;0;0;The phone...;3;me_thinking
+dialog;0;0;They probably heard all of it.;3;me_thinking
+dialog;0;0;Dammit!;3;me_thinking
+dialog;0;0;I should get rid of it.;3;me_thinking
+dialog;0;0;There is a garbage disposer in the sink...;3;me_thinking
