@@ -206,11 +206,9 @@ int main(int argc, char* args[])
     int bg_size[2];
     SDL_QueryTexture(bg,nullptr,nullptr,&bg_size[0],&bg_size[1]);
 
-    load_script("end_day1",&player->script);//("start",&player->script);
+    load_script("start",&player->script);
     execute_script(player->script);
     player->script.clear();
-
-    load_level("start");
 
     SDL_Event e;
 	while (!breakk)
@@ -296,7 +294,7 @@ int main(int argc, char* args[])
             std::stable_sort(objects.begin(),objects.end(),comp);
 
             for (Object* o: objects) if (o->use_camera) o->render();
-            render_shadows(20);
+            render_shadows(script_variables["pitch_black"]?5:20);
         }
 
         for (Object* o: objects) if (!o->use_camera) o->render();

@@ -19,9 +19,15 @@ pc_off,308,270,all_day3_1,44
 desk_chair,281,275,all_day3_1,10
 # bett
 shelf,96,180,all_day3_1,0,0,1
-switch_off,96,236,,8
 bed,96,255,bed_day3_1,40
-nightstand_on,96,293,all_day3_1,20
+#nightstand
+nightstand_on:nightstand_on,96,293,night_stand_on,20
+nightstand_off:nightstand_off,96,293,night_stand_off,20
+#
+#light
+dynamic_light:switch_off,96,236,switch_day1_1,18
+no_dynamic_light:switch_on,96,236,switch_day1_2,18
+#
 # kitchen
 sink,56,262,sink_day3_1,94
 microwave,57,263,,20,,1
