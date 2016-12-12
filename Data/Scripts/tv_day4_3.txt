@@ -1,0 +1,2 @@
+dialog;0;117;I don't watch TV that often.;3;me_thinking
+dialog;0;117;The organisation tends to spread their lies via television.;3;me_thinking

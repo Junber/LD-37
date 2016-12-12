@@ -1,0 +1,28 @@
+dialog;0;117;Hey pal!;3;flamingo
+dialog;0;117;In case you haven't realized this by now:;3;flamingo
+dialog;0;117;You are completely nuts.;3;flamingo
+dialog;0;117;But that was to be expected.;3;flamingo
+dialog;0;117;I flamingoan...;3;flamingo
+dialog;0;117;Being a shut-in for two years sure is tough, isn't it?;3;flamingo
+dialog;0;117;All alone... isolated from society...;3;flamingo
+dialog;0;117;And all that just because of one mistake.;3;flamingo
+dialog;0;117;The final exam.;3;flamingo
+dialog;0;117;It was your last chance...;3;flamingo
+dialog;0;117;And you had to fuck up.;3;flamingo
+dialog;0;117;But...;3;flamingo
+dialog;0;117;You are not the kind of guy who would start over again, are you?;3;flamingo
+dialog;0;117;No...;3;flamingo
+dialog;0;117;You are the kind of guy who gives up imflamingodiately after a setback.;3;flamingo
+dialog;0;117;You becaflamingo unable to face your friends...;3;flamingo
+dialog;0;117;And... even your parents.;3;flamingo
+dialog;0;117;Thus you becaflamingo a shut-in.;3;flamingo
+dialog;0;117;Oh please, don't give flamingo that look!;3;flamingo
+dialog;0;117;I haven't even started to talk about how you made excuses for not leaving your room.;3;flamingo
+dialog;0;117;Well...;3;flamingo
+dialog;0;117;Maybe you caflamingo to believe your own lies.;3;flamingo
+dialog;0;117;How;3;flamingo
+dialog;0;117;Very;3;flamingo
+dialog;0;117;Very;3;flamingo
+dialog;0;117;pitiable your are.;3;flamingo
+dialog;0;117;I feel genuinely sorry for you.;3;flamingo
+level;day4_3

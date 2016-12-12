@@ -1,0 +1,3 @@
+set;day4_1_tv_off;1
+set;day4_1_tv_on;0
+level;day4_2

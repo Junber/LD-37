@@ -1,7 +1,13 @@
 sound;phone;1
+<<<<<<< HEAD
 set;dynamic_light;1
 set;night_stand_on;1
 set;not_done_whiteboard;1
 set;not_done_pc;1
 set;not_done_all;1
 teleport;150;235
+=======
+set;phone_ok;1
+set;dynamic_light;1
+set;day4_1_tv_on;1
+>>>>>>> origin/master

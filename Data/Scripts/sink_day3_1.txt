@@ -1,0 +1,35 @@
+stop_sound
+dialog;0;117;...;3;me
+sound;noise
+dialog;0;117;Darling?;3;mom
+#
+dialog;0;117;M-mum?;3;me
+sound;noise
+dialog;0;117;How could you do this to me?;3;mom
+dialog;0;117;Do you hate me that much?;3;mom
+#
+dialog;0;117;No!;3;me
+dialog;0;117;I-I...;3;me
+dialog;0;117;It's because of them!;3;me
+dialog;0;117;They hear everything I say!;3;me
+dialog;0;117;They watch me when I go out!;3;me
+dialog;0;117;I-it's not because of you.;3;me
+dialog;0;117;...;3;mom
+sound;noise
+dialog;0;117;...;3;mom
+dialog;0;117;Darling...;3;mom
+dialog;0;117;You should stop blaming others for your cowardice.;3;mom
+dialog;0;117;You know that there is not such a thing as "the organization".;3;mom
+dialog;0;117;Life has been tough for you since you dropped out of uni-;3;mom
+#
+dialog;0;117;THEY ARE REAL!;3;me
+dialog;0;117;Lurking in the shadows...;3;me
+dialog;0;117;Trying to lure me out...;3;me
+dialog;0;117;They are real, you hear me?!;3;me
+sound;somesound
+dialog;0;117;I'm no shut-in...;3;me_thining
+dialog;0;117;I'm no shut-in!;3;me_thinking
+set;dynamic_light;0
+level;day3_2
+dialog;0;117;What...;3;me_thining
+dialog;0;117;What happened?;3;me_thining

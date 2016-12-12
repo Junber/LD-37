@@ -1,0 +1,1 @@
+dialog;0;117;Maybe I should learn how to cook.;3;me_thinking

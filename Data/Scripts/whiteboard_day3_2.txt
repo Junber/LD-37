@@ -1,6 +1,6 @@
 closeup;1;whiteboard_closeup
 dialog;0;117;Did I write this?;3;me_thinking
-dialog;-70;0;;;
+dialog;-70;0;3;3;
 dialog;0;117;Where is all the information I collected.;3;me_thinking
 closeup;0;whiteboard_closeup
 dialog;0;117;They exist.;3;me
