@@ -1,3 +1,4 @@
 dialog;0;117;I must have left it on.;3;me_thinking
-closeup;pc_closeup
+closeup;1;pc_closeup
 dialog;0;117;Why would they say something like this?;3;me_thinking
+closeup;0;pc_closeup

@@ -1,0 +1,4 @@
+dialog;0;117;W-where did my lamp go?;3;me_thinking
+dialog;0;117;I hate flamingos.;3;me_thinking
+dialog;0;117;Who would ever buy something like this?;3;me_thinking
+dialog;0;117;I don't really want to touch this thing...;3;me_thinking

@@ -1,3 +1,4 @@
 dialog;0;117;Alright, let's see if my comrades are online.;3;me_thinking
-closeup;pc_closeup
+closeup;1;pc_closeup
 dialog;0;117;At least these guys truly understand me.;3:me_thinking
+closeup;0;pc_closeup

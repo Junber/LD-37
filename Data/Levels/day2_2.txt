@@ -19,9 +19,10 @@ pc_on,308,270,pc_day2_2,44
 desk_chair,281,275,,10
 # bett
 shelf,96,200,shelf_day2_2,0,0,1
+switch_off,96,246,,8
 bed,96,255,bed_day2_2,40
 nightstand_on,96,293,,20
 # kitchen
 sink,56,262,sink_day2_2,94
 fridge,49,212,fridge_day2_2,25
-outdoor,14,342,outdoor_day2_2,50
+outdoor,4,342,outdoor_day2_2,50

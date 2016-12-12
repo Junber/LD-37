@@ -1,0 +1,8 @@
+closeup;1;pc_closeup
+dialog;0;117;Some weird things are happening around me.;3;me_thinking
+dialog;0;117;Maybe my friends...;3;me_thinking
+dialog;0;117;can help me.;3;me_thinking
+dialog;0;117;I hopefully things are back to normal;3;me_thinking
+dialog;0;117;so that I can talk to them like always.;3;me_thinking
+closeup;0;pc_closeup
+dialog;0;117;Still no replies.;3;me_thinking

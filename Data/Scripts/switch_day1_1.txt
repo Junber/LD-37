@@ -1,0 +1,1 @@
+set;dynamic_light;0

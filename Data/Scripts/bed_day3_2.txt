@@ -1,0 +1,13 @@
+dialog;0;117;Why is everything so fucked up?;3;me_thinking
+dialog;0;117;...;3;me_thinking
+dialog;0;117;It has to be THEIR fault...;3;me_thinking
+dialog;0;117;They enter my room when I sleep...;3;me_thinking
+dialog;0;117;Trying to make me insane...;3;me_thinking
+dialog;0;117;HA.;3;me_thinking
+dialog;0;117;AHAHAHAHA!;3;me_thinking
+dialog;0;117;They EXIST!!!;3;me_thinking
+dialog;0;117;I knew it!;3;me_thinking
+dialog;0;117;...;3;me_thinking
+dialog;0;117;...;3;me_thinking
+dialog;0;117;I should sleep some more.;3;me_thinking
+dialog;0;117;To regain my composure.;3;me_thinking
