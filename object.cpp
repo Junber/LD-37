@@ -71,19 +71,35 @@ void execute_script(std::deque<std::string> script)
     }
 }
 
-Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground, bool zone, bool light)
+Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground, bool zone, int light)
 {
     pos[0] = x;
     pos[1] = y;
 
     tex = load_image(s);
-    if (light) light_tex = load_image("light_"+s);
-    else light_tex = nullptr;
 
-    SDL_SetTextureBlendMode(light_tex,SDL_BLENDMODE_ADD);
+    light_frames = light;
+    cur_light_frame=0;
+    if (light_frames==1)
+    {
+        light_tex[0] = load_image("light_"+s);
+        SDL_SetTextureBlendMode(light_tex[0],SDL_BLENDMODE_ADD);
+    }
+    else if (light_frames)
+    {
+        for (int i=1; i<=light_frames; i++)
+        {
+            light_tex[i-1] = load_image("light_"+s+std::to_string(i));
+            SDL_SetTextureBlendMode(light_tex[i],SDL_BLENDMODE_ADD);
+        }
+    }
+    else
+    {
+        light_tex[0] = nullptr;
+    }
 
     SDL_QueryTexture(tex, nullptr, nullptr, &size[0], &size[1]);
-    SDL_QueryTexture(light_tex, nullptr, nullptr, &light_size[0], &light_size[1]);
+    SDL_QueryTexture(light_tex[0], nullptr, nullptr, &light_size[0], &light_size[1]);
 
     pos[0] += size[0]/2;
     pos[1] += size[1]/2;
@@ -143,6 +159,14 @@ void Object::update()
                 if (player->lastpos[1]+player->size[1]/2+player->size[1]%2 <= pos[1]-size[1]/2+non_hitbox_height) player->pos[1] = pos[1]-player->size[1]/2-size[1]/2-player->size[1]%2+non_hitbox_height;
                 if (player->lastpos[1]-player->size[1]/2+player->non_hitbox_height >= pos[1]+size[1]/2+size[1]%2) player->pos[1] = pos[1]+player->size[1]/2+size[1]/2+size[1]%2-player->non_hitbox_height;
             }
+        }
+    }
+
+    if (light_frames)
+    {
+        if (!random(0,4))
+        {
+            cur_light_frame = random(0,light_frames-1);
         }
     }
 }
@@ -306,15 +330,15 @@ void Object::render_light()
 {
     SDL_Rect r={pos[0]-light_size[0]/2+window[0]/2-camera_pos[0], pos[1]-light_size[1]/2+window[1]/2-camera_pos[1], light_size[0], light_size[1]};
 
-    SDL_RenderCopy(renderer, light_tex, nullptr, &r);
+    SDL_RenderCopy(renderer, light_tex[cur_light_frame], nullptr, &r);
 }
 
-Player::Player() : Object(20,20,"front1",4,"",false,false,false,true)
+Player::Player() : Object(20,20,"front1",4,"",false,false,false,1)
 {
     anim_progress = 0;
     persistent = true;
 
-    SDL_SetTextureBlendMode(light_tex,SDL_BLENDMODE_BLEND);
+    SDL_SetTextureBlendMode(light_tex[0],SDL_BLENDMODE_BLEND);
 
     load_script("start",&script);
     execute_script(script);
@@ -339,31 +363,31 @@ void Player::update()
         anim_progress++;
         anim_progress%=6*anim_speed;
         tex = load_image("front"+std::to_string(anim_progress/anim_speed+1));
-        light_tex = load_image("light_front"+std::to_string(anim_progress/anim_speed+1));
+        light_tex[0] = load_image("light_front"+std::to_string(anim_progress/anim_speed+1));
     }
     else if (keystate[SDL_SCANCODE_W] && !keystate[SDL_SCANCODE_S])
     {
         anim_progress++;
         anim_progress%=6*anim_speed;
         tex = load_image("back"+std::to_string(anim_progress/anim_speed+1));
-        light_tex = load_image("light_back"+std::to_string(anim_progress/anim_speed+1));
+        light_tex[0] = load_image("light_back"+std::to_string(anim_progress/anim_speed+1));
     }
     else if (keystate[SDL_SCANCODE_A] && !keystate[SDL_SCANCODE_D])
     {
         anim_progress++;
         anim_progress%=6*anim_speed;
         tex = load_image("left"+std::to_string(anim_progress/anim_speed+1));
-        light_tex = load_image("light_left"+std::to_string(anim_progress/anim_speed+1));
+        light_tex[0] = load_image("light_left"+std::to_string(anim_progress/anim_speed+1));
     }
     else if (keystate[SDL_SCANCODE_D] && !keystate[SDL_SCANCODE_A])
     {
         anim_progress++;
         anim_progress%=6*anim_speed;
         tex = load_image("right"+std::to_string(anim_progress/anim_speed+1));
-        light_tex = load_image("light_right"+std::to_string(anim_progress/anim_speed+1));
+        light_tex[0] = load_image("light_right"+std::to_string(anim_progress/anim_speed+1));
     }
 
-    SDL_SetTextureColorMod(light_tex,51,51,51);
+    SDL_SetTextureColorMod(light_tex[0],51,51,51);
 }
 
 Dialog_box::Dialog_box(int x, int y, std::string t, int speed, std::string portrait_image) : Object(x,y,"Dialog_Box",0,"",false,true)

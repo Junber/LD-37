@@ -8,12 +8,12 @@
 class Object
 {
 public:
-    int pos[2], size[2], light_size[2], non_hitbox_height;
+    int pos[2], size[2], light_size[2], non_hitbox_height, light_frames, cur_light_frame;
     bool blocks, foreground, throws_shadow, use_camera, is_zone, persistent;
     std::deque<std::string> script;
-    SDL_Texture *tex, *light_tex;
+    SDL_Texture *tex, *light_tex[3]; //the 3 might need to be higher
 
-    Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground, bool zone=false, bool light=false);
+    Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground, bool zone=false, int light=0);
     virtual ~Object();
     bool collision(int x, int y, int sx, int sy, int nhh);
     virtual void update();

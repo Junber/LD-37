@@ -39,7 +39,7 @@ void render_shadows(int darkness_color)
 
         for (Object* o: objects)
         {
-            if (o->light_tex) o->render_light();
+            if (o->light_frames) o->render_light();
         }
     }
     else
