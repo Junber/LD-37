@@ -1,0 +1,1 @@
+dialog;0;117;At least these guys truly understand me.;3;me_thinking

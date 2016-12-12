@@ -64,7 +64,69 @@ bool comp(Object* a, Object* b)
 
 void options()
 {
+    int cursor_pos=0, music_volume=Mix_VolumeMusic(100);
+    bool fullscreen=false;
+    SDL_Event e;
+    bool breakkk = false;
+	while (!breakkk)
+    {
+        while(SDL_PollEvent(&e))
+        {
+			if (e.type == SDL_QUIT) breakk = breakkk = true;
 
+			else if (e.type == SDL_KEYDOWN)
+			{
+			    switch (e.key.keysym.sym)
+			    {
+                    case SDLK_ESCAPE:
+                        breakkk = true;
+                        break;
+                    case SDLK_s:
+                        cursor_pos++;
+                        break;
+                    case SDLK_w:
+                        cursor_pos--;
+                        break;
+                    case SDLK_a:
+                        if (cursor_pos == 0) sfx_volume+=10;
+                        if (cursor_pos == 1)
+                        {
+                            music_volume+=10;
+                            Mix_VolumeMusic(music_volume);
+                        }
+                        if (cursor_pos == 2)
+                        {
+                            fullscreen = !fullscreen;
+                            SDL_SetWindowFullscreen(renderwindow,fullscreen*SDL_WINDOW_FULLSCREEN);
+                        }
+                        break;
+                    case SDLK_d:
+                        if (cursor_pos == 0) sfx_volume-=10;
+                        if (cursor_pos == 1)
+                        {
+                            music_volume-=10;
+                            Mix_VolumeMusic(music_volume);
+                        }
+                        if (cursor_pos == 2)
+                        {
+                            fullscreen = !fullscreen;
+                            SDL_SetWindowFullscreen(renderwindow,fullscreen*SDL_WINDOW_FULLSCREEN);
+                        }
+                        break;
+                }
+			}
+        }
+
+        cursor_pos %= 3;
+        while (cursor_pos < 0) cursor_pos += 3;
+
+        render_text(125,50,std::to_string(sfx_volume)+"%",255);
+
+        SDL_RenderCopy(renderer,load_image("menu3options"+std::to_string(cursor_pos+1)),nullptr, nullptr);
+        SDL_RenderPresent(renderer);
+
+        limit_fps();
+    }
 }
 
 void main_menu()
@@ -134,6 +196,10 @@ int main(int argc, char* args[])
     SDL_Texture* bg = load_image("background");
     int bg_size[2];
     SDL_QueryTexture(bg,nullptr,nullptr,&bg_size[0],&bg_size[1]);
+
+    load_script("start",&player->script);
+    execute_script(player->script);
+    player->script.clear();
 
     load_level("start");
 

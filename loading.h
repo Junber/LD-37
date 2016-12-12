@@ -24,7 +24,8 @@ extern SDL_Window* renderwindow;
 extern SDL_Renderer* renderer;
 extern const int window[2];
 extern const int renderzoom;
-extern std::string level_to_load, cur_closeup;
+extern int sfx_volume;
+extern std::string level_to_load, cur_level, cur_closeup;
 extern bool active_effects[EFFECT_NUM];
 extern std::map<std::string,bool> script_variables;
 

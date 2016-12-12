@@ -1,0 +1,2 @@
+dialog;0;117;Curse these fiends.*One day I will reveal their hideous deeds...;3;me_thinking
+dialog;0;117;And maybe...*I will be able to go out again..;3;me_thinking

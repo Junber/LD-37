@@ -1,1 +1,3 @@
+set;no_dynamic_light;1
 set;dynamic_light;0
+level

@@ -1,0 +1,4 @@
+closeup;1;day_end
+dialog;0;-70;;3;
+closeup;0;day_end
+level;day2_1

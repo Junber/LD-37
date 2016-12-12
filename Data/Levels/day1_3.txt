@@ -5,21 +5,24 @@ right_wall,332,72,,284,
 bot_wall,0,334,,50,0
 mid_wall,80,180,,184,1
 # topside
-whiteboard,100,20,phone_day1_2,0
-chair,124,80,phone_day1_2,8
+not_done_whiteboard:whiteboard,100,20,whiteboard_day1_2,0
+done_whiteboard:whiteboard2,100,20,whiteboard_day1_3,0
+chair,124,80,chair_day1_2,8
 tv,200,52,,38
 table,200,110,,20
 couch,192,140,,20
 # rightside
 phone_off,300,60,phone_day1_2,28
-drawers,315,62,phone_day1_2,64
-wardrobe,308,150,phone_day1_2,30
-printer,316,250,phone_day1_2,20
-pc_off,308,270,phone_day1_2,44
+drawers,315,62,drawers_day1_2,64
+wardrobe,308,150,wardrobe_day1_2,30
+printer,316,250,printer_day1_2,20
+not_done_pc:pc_off,308,270,pc_day1_2,44
+done_pc:pc_off,308,270,pc_day1_3,44
 desk_chair,281,275,,10
 # bett
 shelf,96,180,,0,0,1
-bed,96,255,bed_day1_2,40
+not_done_all:bed,96,255,bed_day1_2,40
+done_all:bed,96,255,end_day1,40
 #
 #nightstand
 nightstand_on:nightstand_on,96,293,night_stand_on,20
@@ -30,6 +33,6 @@ dynamic_light:switch_off,96,236,switch_day1_1,18
 no_dynamic_light:switch_on,96,236,switch_day1_2,18
 #
 # kitchen
-sink,56,262,sink_dispose_phone,94
-fridge,49,212,phone_day1_2,25
-outdoor,10,342,phone_day1_2,50
+sink,56,262,sink_day1_2,94
+fridge,49,212,fridge_day1_2,25
+outdoor,10,342,outdoor_day1_2,50

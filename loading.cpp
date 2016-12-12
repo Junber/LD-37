@@ -5,10 +5,11 @@
 #include <iostream>
 
 const int renderzoom = 5;
+int sfx_volume=100;
 const int window[2] = {320,180}; //{480,270};//{960,540};
 SDL_Window* renderwindow = nullptr;
 SDL_Renderer* renderer = nullptr;
-std::string level_to_load = "", cur_closeup = "";
+std::string level_to_load = "", cur_level = "", cur_closeup = "";
 bool active_effects[EFFECT_NUM] = {};
 std::map<std::string,bool> script_variables;
 
@@ -45,6 +46,8 @@ void load_level(std::string name)
                                      splitted.size()>5?splitted[5]=="1":false,splitted.size()>6?splitted[6]=="1":false,
                                      splitted.size()>7?splitted[7]=="1":false,splitted.size()>8?std::stoi(splitted[8]):0);
     }
+
+    cur_level = name;
 }
 
 void load_script(std::string name, std::deque<std::string>* result)
@@ -66,7 +69,11 @@ void load_script(std::string name, std::deque<std::string>* result)
 std::map<std::string,Mix_Chunk*> loaded_sounds;
 Mix_Chunk* load_sound(std::string s)
 {
-    if (!loaded_sounds.count(s)) loaded_sounds[s] = Mix_LoadWAV((std::string("Data")+PATH_SEPARATOR+"Sounds"+PATH_SEPARATOR+s+".wav").c_str());
+    if (!loaded_sounds.count(s))
+    {
+        loaded_sounds[s] = Mix_LoadWAV((std::string("Data")+PATH_SEPARATOR+"Sounds"+PATH_SEPARATOR+s+".wav").c_str());
+        Mix_VolumeChunk(loaded_sounds[s], sfx_volume);
+    }
     return loaded_sounds[s];
 }
 

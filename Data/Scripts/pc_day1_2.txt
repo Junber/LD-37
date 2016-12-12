@@ -1,4 +1,11 @@
 dialog;0;117;Alright, let's see if my comrades are online.;3;me_thinking
 closeup;1;pc_closeup
-dialog;0;117;At least these guys truly understand me.;3:me_thinking
+dialog;0;117;At least these guys truly understand me.;3;me_thinking
 closeup;0;pc_closeup
+done_whiteboard:dialog;0;117;Phew.*I'm tired now.;3;me_thinking
+#
+done_whiteboard:set;done_all;1
+done_whiteboard:set;not_done_all;0
+set;done_pc;1
+set;not_done_pc;0
+level

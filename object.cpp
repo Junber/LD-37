@@ -22,6 +22,15 @@ void execute_script(std::deque<std::string> script)
         if (d) d->script.push_back(line);
         else
         {
+            auto presplitted = split(line,':');
+
+            if (presplitted.size()>1)
+            {
+                if ((!script_variables.count(presplitted[0]) || !script_variables[presplitted[0]])) continue;
+
+                line = presplitted[1];
+            }
+
             auto splitted = split(line,';');
             if (splitted[0] == "sound") //I hate string comparisons as much as the next guy but this is a lot easier
             {
@@ -42,7 +51,8 @@ void execute_script(std::deque<std::string> script)
             }
             else if (splitted[0] == "level")
             {
-                level_to_load = splitted[1];
+                if (splitted.size()>1) level_to_load = splitted[1];
+                else level_to_load = cur_level;
             }
             else if (splitted[0] == "teleport")
             {
@@ -331,10 +341,6 @@ Player::Player() : Object(20,20,"front1",4,"",false,false,false,1)
     persistent = true;
 
     SDL_SetTextureBlendMode(light_tex[0],SDL_BLENDMODE_BLEND);
-
-    load_script("start",&script);
-    execute_script(script);
-    script.clear();
 }
 
 void Player::update()

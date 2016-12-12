@@ -1,3 +1,6 @@
 sound;phone_in_disposer
-set;phone_ok;0
-set;phone_not_ok;1
+dialog;0;117;Now the organisation can't hear me anymore.;3;me_thinking
+dialog;0;117;Okay, back to my daily routine...;3;me_thinking
+dialog;0;117;What should I do first?*Working on my whiteboard or checking my mails?;3;me_thinking
+dialog;0;117;Hmmm...;3;me_thinking
+level;day1_3

@@ -1,6 +1,14 @@
-dialog;0;117;Let's take a look at the "conspiracy detection whiteboard".;3;me_thinking
+dialog;0;117;Let's take a look at the*"conspiracy detection whiteboard".;3;me_thinking
 closeup;1;whiteboard_closeup
-dialog;-70;0;;;
-dialog;0;117;Curse these fiends.*One day I will reveal their hideous deeds...;3;me_thinking
-dialog;0;117;And maybe...*I will be able to go out again..;3;me_thinking
+dialog;0;-70;;3;
 closeup;0;whiteboard_closeup
+closeup;1;whiteboard_closeup2
+dialog;0;-70;;3;
+closeup;0;whiteboard_closeup2
+done_pc:dialog;0;117;Phew.*I'm tired now.;3;me_thinking
+#
+done_pc:set;done_all;1
+done_pc:set;not_done_all;0
+set;done_whiteboard;1
+set;not_done_whiteboard;0
+level

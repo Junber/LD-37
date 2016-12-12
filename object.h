@@ -5,6 +5,8 @@
 #include <SDL.h>
 #include <string>
 
+void execute_script(std::deque<std::string> script);
+
 class Object
 {
 public:

@@ -5,7 +5,7 @@ right_wall,332,72,,284,
 bot_wall,0,334,,50,0
 mid_wall,80,180,,184,1
 # topside
-whiteboard,100,20,pc_and_white_day1_1,0
+whiteboard,100,20,all_day1_1,0
 chair,124,80,all_day1_1,8
 tv,200,52,all_day1_1,38
 table,200,110,all_day1_1,20
@@ -15,13 +15,20 @@ phone_on,300,60,phone_day1_1,28
 drawers,315,62,phone_day1_1,64
 wardrobe,308,150,all_day1_1,30
 printer,316,250,all_day1_1,20
-pc_off,308,270,pc_and_white_day1_1,44
+pc_off,308,270,all_day1_1,44
 desk_chair,281,275,all_day1_1,10
 # bett
-shelf,96,180,switch_day1_1,30,0,1
-switch_off,96,236,switch_day1_1,20
+shelf,96,180,,0,0,1
 bed,96,255,bed_day1_1,40
-nightstand_on,96,293,all_day1_1,20,,,,1
+#
+#nightstand
+nightstand_on:nightstand_on,96,293,night_stand_on,20
+nightstand_off:nightstand_off,96,293,night_stand_off,20
+#
+#light
+dynamic_light:switch_off,96,236,switch_day1_1,18
+no_dynamic_light:switch_on,96,236,switch_day1_2,18
+#
 # kitchen
 sink,56,262,all_day1_1,94
 fridge,49,212,all_day1_1,25
