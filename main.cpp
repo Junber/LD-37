@@ -62,10 +62,54 @@ bool comp(Object* a, Object* b)
     return (!a->foreground && (b->foreground || (a->pos[1]+a->size[1]/2 < b->pos[1]+b->size[1]/2)));
 }
 
+void options()
+{
+
+}
 
 void main_menu()
 {
+    int cursor_pos=2;
+    SDL_Event e;
+    bool breakkk = false;
+	while (!breakkk)
+    {
+        while(SDL_PollEvent(&e))
+        {
+			if (e.type == SDL_QUIT) breakk = breakkk = true;
 
+			else if (e.type == SDL_KEYDOWN)
+			{
+			    switch (e.key.keysym.sym)
+			    {
+                    case SDLK_ESCAPE:
+                        breakk = breakkk = true;
+                        break;
+                    case SDLK_d:
+                    case SDLK_s:
+                        cursor_pos++;
+                        break;
+                    case SDLK_a:
+                    case SDLK_w:
+                        cursor_pos--;
+                        break;
+                    case SDLK_e:
+                        if (cursor_pos == 0) options();
+                        if (cursor_pos == 1) breakk = breakkk = true;
+                        if (cursor_pos == 2) breakkk=true;
+                        break;
+                }
+			}
+        }
+
+        cursor_pos %= 3;
+        while (cursor_pos < 0) cursor_pos += 3;
+
+        SDL_RenderCopy(renderer,load_image("menu"+std::to_string(cursor_pos+1)),nullptr, nullptr);
+        SDL_RenderPresent(renderer);
+
+        limit_fps();
+    }
 }
 
 int main(int argc, char* args[])
