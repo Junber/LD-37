@@ -1,0 +1,38 @@
+Day2Script
+
+*Knock knock
+*Who's there?
+*A reason to get up
+*Room is all dark except the lamp next to the bed
+(Who...
+Is it them..?)
+*Find the lightswitch
+*Go to the door and take a look through the spyhole
+*A man with a suit
+
+" *Knock* *Knock*
+
+
+Don't answer:
+(That's right.
+No one's there...
+He might be one of their spies.
+Trying to lure me out...
+Heavens, the depths of depravity...
+I will add a remark.
+For my "conspiracy detection whiteboard".)
+
+*Interact with the whiteboard
+*It does not show the version of the last day
+*Information is altered
+
+(My computer...
+I should check on it.
+Just in case.)
+
+*Interact with computer (computer was on)
+*After Interaction
+(What is the meaning of this?)
+
+*After Interaction go to bed (Bed has turned)
+
