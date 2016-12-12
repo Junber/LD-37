@@ -71,13 +71,19 @@ void execute_script(std::deque<std::string> script)
     }
 }
 
-Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground, bool zone)
+Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground, bool zone, bool light)
 {
     pos[0] = x;
     pos[1] = y;
 
     tex = load_image(s);
+    if (light) light_tex = load_image("light_"+s);
+    else light_tex = nullptr;
+
+    SDL_SetTextureBlendMode(light_tex,SDL_BLENDMODE_ADD);
+
     SDL_QueryTexture(tex, nullptr, nullptr, &size[0], &size[1]);
+    SDL_QueryTexture(light_tex, nullptr, nullptr, &light_size[0], &light_size[1]);
 
     pos[0] += size[0]/2;
     pos[1] += size[1]/2;
@@ -155,7 +161,7 @@ bool Object::interact(bool touch)
 
 void Object::render()
 {
-    SDL_Rect r={(pos[0]-size[0]/2+use_camera*(window[0]/2-camera_pos[0]))*renderzoom, (pos[1]-size[1]/2+use_camera*(window[1]/2-camera_pos[1]))*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
+    SDL_Rect r={pos[0]-size[0]/2+use_camera*(window[0]/2-camera_pos[0]), pos[1]-size[1]/2+use_camera*(window[1]/2-camera_pos[1]), size[0], size[1]};
 
     if (active_effects[trails]) SDL_SetTextureAlphaMod(tex,50);
     SDL_RenderCopy(renderer, tex, nullptr, &r);
@@ -163,7 +169,7 @@ void Object::render()
 
 void Object::render_shadow(int darkness_color)
 {
-    const int lightsource[2] = {player->pos[0], player->pos[1]+player->size[1]/2};
+    const int lightsource[2] = {player->pos[0], player->pos[1]-player->size[1]/2+8};
 
     Sint16 vx[7], vy[7];
     bool pentagon = false;
@@ -296,6 +302,13 @@ void Object::render_shadow(int darkness_color)
     filledPolygonRGBA(renderer,vx,vy,(pentagon?5:4)+add_corners,darkness_color,darkness_color,darkness_color,255);
 }
 
+void Object::render_light()
+{
+    SDL_Rect r={pos[0]-light_size[0]/2+window[0]/2-camera_pos[0], pos[1]-light_size[1]/2+window[1]/2-camera_pos[1], light_size[0], light_size[1]};
+
+    SDL_RenderCopy(renderer, light_tex, nullptr, &r);
+}
+
 Player::Player() : Object(20,20,"front1",4,"",false,false)
 {
     anim_progress = 0;
@@ -390,7 +403,7 @@ void Dialog_box::render()
 {
     Object::render();
 
-    SDL_Rect r = {(pos[0]-size[0]/2+15)*renderzoom, (pos[1]+size[1]/2-portrait_size[0]-6)*renderzoom, portrait_size[0]*renderzoom, portrait_size[1]*renderzoom};
+    SDL_Rect r = {pos[0]-size[0]/2+15, pos[1]+size[1]/2-portrait_size[0]-6, portrait_size[0], portrait_size[1]};
 
     SDL_RenderCopy(renderer,portrait[(progress < text.size()*type_speed)*(progress/8)%2],nullptr, &r);
 

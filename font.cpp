@@ -28,7 +28,7 @@ void render_text(int posx, int posy, std::string s, Uint8 brightness)
         SDL_Texture* tex =text_to_texture(st, brightness);
         int size[2];
         SDL_QueryTexture(tex, nullptr, nullptr, &size[0], &size[1]);
-        SDL_Rect r = {posx*renderzoom, (posy+offset)*renderzoom, size[0]*renderzoom, size[1]*renderzoom};
+        SDL_Rect r = {posx, posy+offset, size[0], size[1]};
         SDL_RenderCopy(renderer, tex, nullptr, &r);
 
         offset += size[1]+5;

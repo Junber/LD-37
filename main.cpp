@@ -33,6 +33,12 @@ void render_shadows(int darkness_color)
     SDL_SetRenderTarget(renderer,overlay);
     SDL_SetRenderDrawColor(renderer,darkness_color,darkness_color,darkness_color,255);//darkness_color,darkness_color,darkness_color,255);
     SDL_RenderClear(renderer);
+
+    for (Object* o: objects)
+    {
+        if (o->light_tex) o->render_light();
+    }
+
     for (Object* o: objects)
     {
         if (o->throws_shadow) o->render_shadow(0);
@@ -56,6 +62,8 @@ int main(int argc, char* args[])
 
     renderwindow = SDL_CreateWindow("LD 37", 50, 50, window[0]*renderzoom, window[1]*renderzoom, SDL_WINDOW_SHOWN);//|SDL_WINDOW_FULLSCREEN);
     renderer = SDL_CreateRenderer(renderwindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+    SDL_RenderSetScale(renderer,renderzoom,renderzoom);
 
     overlay = SDL_CreateTexture(renderer,SDL_PIXELFORMAT_RGBA8888,SDL_TEXTUREACCESS_TARGET,window[0],window[1]);
     SDL_SetTextureBlendMode(overlay,SDL_BLENDMODE_MOD);
@@ -131,7 +139,7 @@ int main(int argc, char* args[])
         if (camera_pos[1] < window[1]/2-5) camera_pos[1] = window[1]/2-5;
         else if (camera_pos[1] > bg_size[1]-window[1]/2+135) camera_pos[1] = bg_size[1]-window[1]/2+135;
 
-        SDL_Rect r = {(8-camera_pos[0]+window[0]/2)*renderzoom, (72-camera_pos[1]+window[1]/2)*renderzoom, bg_size[0]*renderzoom, bg_size[1]*renderzoom};
+        SDL_Rect r = {8-camera_pos[0]+window[0]/2, 72-camera_pos[1]+window[1]/2, bg_size[0], bg_size[1]};
 
         if (active_effects[trails])
         {
@@ -167,7 +175,7 @@ int main(int argc, char* args[])
             level_to_load = "";
         }
 
-        if (active_effects[move_window]) SDL_SetWindowPosition(renderwindow,camera_pos[0]*renderzoom,camera_pos[1]*renderzoom);
+        if (active_effects[move_window]) SDL_SetWindowPosition(renderwindow,camera_pos[0],camera_pos[1]);
 
         SDL_RenderPresent(renderer);
         limit_fps();

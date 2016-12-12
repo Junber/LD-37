@@ -8,17 +8,18 @@
 class Object
 {
 public:
-    int pos[2], size[2], non_hitbox_height;
+    int pos[2], size[2], light_size[2], non_hitbox_height;
     bool blocks, foreground, throws_shadow, use_camera, is_zone, persistent;
     std::deque<std::string> script;
-    SDL_Texture* tex;
+    SDL_Texture *tex, *light_tex;
 
-    Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground, bool zone=false);
+    Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground, bool zone=false, bool light=false);
     virtual ~Object();
     bool collision(int x, int y, int sx, int sy, int nhh);
     virtual void update();
     virtual void render();
     void render_shadow(int darkness_color);
+    void render_light();
     virtual bool interact(bool touch);
 };
 
