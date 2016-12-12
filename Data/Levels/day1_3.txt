@@ -35,4 +35,5 @@ no_dynamic_light:switch_on,96,236,switch_day1_2,18
 # kitchen
 sink,56,262,sink_day1_2,94
 fridge,49,212,fridge_day1_2,25
+microwave,57,263,,20,,1
 outdoor,10,342,outdoor_day1_2,50

@@ -12,6 +12,13 @@ set;not_done_whiteboard;1
 set;done_whiteboard;0
 set;not_done_pc;1
 set;done_pc;0
+set;done_all;0
+set;not_done_all;1
 #
+sound;ringing_pipe;1
 teleport;150;235
 level;day3_1
+#
+dialog;0;117;What is this noise?;3;me_thining
+dialog;0;117;It'a pitch dark...;3;me_thining
+dialog;0;117;I can't see shit.;3;me_thining

@@ -1,0 +1,33 @@
+# walls
+top_wall_dirty,0,0,,15,
+left_wall,0,72,,470,1
+right_wall,332,72,,284,
+bot_wall,0,334,,50,0
+mid_wall,80,180,,184,1
+# topside
+not_done_whiteboard:whiteboard3,100,20,whiteboard_day3_2,0
+done_whiteboard:whiteboard3,100,20,whiteboard_day1_3,0
+chair_dirty,124,80,chair_day3_2,8
+tv_dirty,200,52,,38
+table_dirty,200,110,,20
+couch_dirty,192,140,,20
+# rightside
+phone_off_dirty,300,60,,28
+drawers_dirty,315,62,drawers_day3_2,64
+wardrobe_dirty,308,150,wardrobe_day3_2,30
+printer_dirty,316,250,printer_day3_2,20
+#
+not_done_pc:pc_on_dirty,308,270,pc_day3_2,44
+done_pc:pc_on_dirty,308,270,pc_day3_3,44
+desk_chair_dirty,281,275,,10
+# bett
+shelf_dirty,96,180,shelf_day3_2,0,0,1
+switch_off,96,236,,8
+not_done_all:bed_dirty,96,255,bed_day3_2,40
+done_all:bed_dirty,96,255,end_day3,40
+flamingo_on,96,280,,20
+# kitchen
+sink_dirty,56,262,sink_day3_2,94
+microwave_dirty,57,263,,20,,1
+fridge_dirty,49,212,fridge_day3_2,25
+outdoor_dirty,10,342,outdoor_day3_2,50

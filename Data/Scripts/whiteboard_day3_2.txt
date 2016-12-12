@@ -1,6 +1,12 @@
-closeup;1;whiteboard_closeup
-dialog;0;117;Did I write this?;3;me_thinking
-dialog;-70;0;3;3;
-dialog;0;117;Where is all the information I collected.;3;me_thinking
-closeup;0;whiteboard_closeup
-dialog;0;117;They exist.;3;me
+closeup;1;whiteboard_closeup3
+dialog;0;117;Did I write this?;3;me_thinking_tired
+dialog;0;-70;;3;
+dialog;0;117;Where is all the information I collected.;3;me_thinking_tired
+closeup;0;whiteboard_closeup3
+dialog;0;117;They exist.;3;me_tired
+#
+done_pc:set;done_all;1
+done_pc:set;not_done_all;0
+set;done_whiteboard;1
+set;not_done_whiteboard;0
+level
