@@ -1,0 +1,11 @@
+set;did_door;1
+set;not_did_door;0
+level
+#
+dialog;0;117;That's right.;3;me_thinking
+dialog;0;117;No one's there...;3;me_thinking
+dialog;0;117;He might be one of their spies.;3;me_thinking
+dialog;0;117;Trying to lure me out...;3;me_thinking
+dialog;0;117;Heavens, the depths of depravity...;3;me_thinking
+dialog;0;117;I will add a remark.;3;me_thinking
+dialog;0;117;For my "conspiracy detection whiteboard".;3;me_thinking

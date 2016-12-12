@@ -1,34 +1,13 @@
 level;day2_2
+stop_sound
+closeup;1;mr_peep
+dialog;0;-70;;3;
+closeup;0;mr_peep;
+#
 dialog;0;117;Hello?;3;mr
 dialog;0;117;Is anyone there? Mr. Hale? ;3;mr
-dialog;0;117;I'm here to remind you that you have not been paying your electricity bill recently.;3;mr
-dialog;0;117We will have to shut down your power supply if you don't pay within three weeks.;3;mr
+dialog;0;117;I'm here to remind you that you have not been paying*your electricity bill recently.;3;mr
+dialog;0;117;We will have to shut down your power supply*if you don't pay within three weeks.;3;mr
 dialog;0;117;Mr. Hale??;3;mr
 #
-dialog;0;117;Y-yes?;3;me
-#
-dialog;0;117;Mr. Hale, would you mind opening the door?;3;mr
-dialog;0;117;We need to talk. It's about your bills.;3;mr
-#
-dialog;0;117;There is no need to open the door.;3;me
-dialog;0;117;I'll pay.;3;me
-dialog;0;117;Just don't cut my power supply, please.;3;me
-#
-dialog;0;117;I certainly hope so.;3;mr
-dialog;0;117;I don't want a shut-in like you to stumble through the dark.;3;mr
-dialog;0;117;I know you can't live without electricity.;3;mr
-#
-dialog;0;117;Wha-;3;me
-dialog;0;117;I'm no fucking shut-in!;3;me
-dialog;0;117;G-get lost!;3;me
-#
-dialog;0;117;Ahaha!;3;mr
-dialog;0;117;But of course...;3;mr
-# gets lost
-dialog;0;117;What does this guy know?!;3;me_thinking
-dialog;0;117;I'm no shut-in!;3;me_thinking
-dialog;0;117;Yes... ;3;me_thinking
-dialog;0;117;I simply can't go out because...;3;me_thinking
-dialog;0;117;Of them... these fiends.;3;me_thinking
-dialog;0;117;Maybe he's one of them.;3;me_thinking
-dialog;0;117;I will definetely add him to my "conspiracy detection whiteboard".;3;me_thinking
+dialog;0;117;I wonder if I should answer.;3;me_thinking

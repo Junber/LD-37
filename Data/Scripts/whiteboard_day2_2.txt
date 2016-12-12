@@ -1,6 +1,6 @@
 dialog;0;117;What is this?;3;me_thinking
 closeup;1;whiteboard_closeup
-dialog;-70;0;3;3;
+dialog;0;-70;;3;
 dialog;0;117;That's not what I wrote some days ago.;3;me_thinking
 dialog;0;117;Where is the part about their possible hideout locations...;3;me_thinking
 dialog;0;117;and the part concerning phone tapping.;3;me_thinking
@@ -12,3 +12,7 @@ closeup;0;whiteboard_closeup
 dialog;0;117;Who did this?;3;me_thinking
 dialog;0;117;It couldn't have been...;3;me_thinking
 dialog;0;117;them?;3;me_thinking
+#
+set;not_done_whiteboard;0
+set;done_whiteboard;1
+level;day2_3
