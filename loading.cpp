@@ -8,7 +8,7 @@ const int renderzoom = 5;
 const int window[2] = {320,180}; //{480,270};//{960,540};
 SDL_Window* renderwindow = nullptr;
 SDL_Renderer* renderer = nullptr;
-std::string level_to_load = "";
+std::string level_to_load = "", cur_closeup = "";
 bool active_effects[EFFECT_NUM] = {};
 std::map<std::string,bool> script_variables;
 

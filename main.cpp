@@ -126,43 +126,52 @@ int main(int argc, char* args[])
         SDL_SetRenderDrawColor(renderer,0,0,0,255);
         if (!active_effects[trails]) SDL_RenderClear(renderer);
 
-        player->update();
-        for (Object* o: objects)
+        if (cur_closeup != "")
         {
-            if (o != player) o->update();
+            SDL_RenderCopy(renderer,load_image(cur_closeup),nullptr,nullptr);
+            for (Object* o: objects) if (!o->use_camera) o->update();
         }
-
-        for (Object* o: automatic_trigger)
+        else
         {
-            if (o->collision(player->pos[0], player->pos[1], player->size[0], player->size[1], player->non_hitbox_height))
+            player->update();
+            for (Object* o: objects)
             {
-                o->interact(true);
+                if (o != player) o->update();
             }
+
+            for (Object* o: automatic_trigger)
+            {
+                if (o->collision(player->pos[0], player->pos[1], player->size[0], player->size[1], player->non_hitbox_height))
+                {
+                    o->interact(true);
+                }
+            }
+
+            camera_pos[0] = player->pos[0];
+            camera_pos[1] = player->pos[1];
+
+            if (camera_pos[0] < window[0]/2-5) camera_pos[0] = window[0]/2-5;
+            else if (camera_pos[0] > bg_size[0]-window[0]/2+20) camera_pos[0] = bg_size[0]-window[0]/2+20;
+            if (camera_pos[1] < window[1]/2-5) camera_pos[1] = window[1]/2-5;
+            else if (camera_pos[1] > bg_size[1]-window[1]/2+135) camera_pos[1] = bg_size[1]-window[1]/2+135;
+
+            SDL_Rect r = {8-camera_pos[0]+window[0]/2, 72-camera_pos[1]+window[1]/2, bg_size[0], bg_size[1]};
+
+            if (active_effects[trails])
+            {
+                SDL_SetTextureAlphaMod(bg,20);
+                SDL_SetTextureBlendMode(bg,SDL_BLENDMODE_BLEND);
+            }
+            if (active_effects[random_bg_color]) SDL_SetTextureColorMod(bg,random(0,255),random(0,255),random(0,255));
+
+            SDL_RenderCopy(renderer,bg,nullptr,&r);
+
+            std::stable_sort(objects.begin(),objects.end(),comp);
+
+            for (Object* o: objects) if (o->use_camera) o->render();
+            render_shadows(20);
         }
 
-        camera_pos[0] = player->pos[0];
-        camera_pos[1] = player->pos[1];
-
-        if (camera_pos[0] < window[0]/2-5) camera_pos[0] = window[0]/2-5;
-        else if (camera_pos[0] > bg_size[0]-window[0]/2+20) camera_pos[0] = bg_size[0]-window[0]/2+20;
-        if (camera_pos[1] < window[1]/2-5) camera_pos[1] = window[1]/2-5;
-        else if (camera_pos[1] > bg_size[1]-window[1]/2+135) camera_pos[1] = bg_size[1]-window[1]/2+135;
-
-        SDL_Rect r = {8-camera_pos[0]+window[0]/2, 72-camera_pos[1]+window[1]/2, bg_size[0], bg_size[1]};
-
-        if (active_effects[trails])
-        {
-            SDL_SetTextureAlphaMod(bg,20);
-            SDL_SetTextureBlendMode(bg,SDL_BLENDMODE_BLEND);
-        }
-        if (active_effects[random_bg_color]) SDL_SetTextureColorMod(bg,random(0,255),random(0,255),random(0,255));
-
-        SDL_RenderCopy(renderer,bg,nullptr,&r);
-
-        std::stable_sort(objects.begin(),objects.end(),comp);
-
-        for (Object* o: objects) if (o->use_camera) o->render();
-        render_shadows(20);
         for (Object* o: objects) if (!o->use_camera) o->render();
 
         for (Object* o: to_delete)

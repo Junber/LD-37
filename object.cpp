@@ -51,17 +51,8 @@ void execute_script(std::deque<std::string> script)
             }
             else if (splitted[0] == "closeup")
             {
-                SDL_RenderCopy(renderer,load_image(splitted[1]),nullptr,nullptr);
-
-                SDL_Event e;
-                bool breakk=false;
-                while (!breakk)
-                {
-                    while(SDL_PollEvent(&e))
-                    {
-                        if (e.type == SDL_KEYDOWN && (e.key.keysym.sym == SDLK_e || e.key.keysym.sym == SDLK_ESCAPE)) breakk = true;
-                    }
-                }
+                if (splitted[1]=="1") cur_closeup = splitted[2];
+                else cur_closeup = "";
             }
             else if (splitted[0] == "set")
             {
