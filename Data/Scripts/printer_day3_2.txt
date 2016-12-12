@@ -1,0 +1,1 @@
+dialog;0;117;It's broken...;3;me_thinking

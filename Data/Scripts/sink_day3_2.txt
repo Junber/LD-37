@@ -1,0 +1,2 @@
+dialog;0;117;There's something in there...;3;mw_thinking
+dialog;0;117;But I can't open it.;3;me_thinking

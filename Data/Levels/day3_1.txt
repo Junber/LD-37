@@ -1,0 +1,27 @@
+# walls
+top_wall,0,0,,15,
+left_wall,0,72,,470,1
+right_wall,332,72,,284,
+bot_wall,0,334,,50,0
+mid_wall,80,180,,184,1
+# topside
+whiteboard,100,20,all_day3_1,0
+chair,124,80,all_day3_1,8
+tv,200,52,all_day3_1,38
+table,200,110,all_day3_1,20
+couch,192,140,all_day3_1,20
+# rightside
+phone_on,300,60,all_day3_1,28
+drawers,315,62,all_day3_1,64
+wardrobe,308,150,all_day3_1,30
+printer,316,250,all_day3_1,20
+pc_off,308,270,all_day3_1,44
+desk_chair,281,275,all_day3_1,10
+# bett
+shelf,96,200,all_day3_1,0,0,1
+bed,96,255,bed_day3_1,40
+nightstand_on,96,293,all_day3_1,20
+# kitchen
+sink,56,262,sink_day3_1,94
+fridge,49,212,all_day3_1,25
+outdoor,14,342,all_day3_1,50
