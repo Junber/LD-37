@@ -1,5 +1,8 @@
 [condition variable]:[command]
 
+Special variables:
+dynamic_light
+
 [commands]:
 sound,[file],[looping (optional]
 stop_sound

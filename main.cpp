@@ -31,12 +31,21 @@ SDL_Texture* overlay;
 void render_shadows(int darkness_color)
 {
     SDL_SetRenderTarget(renderer,overlay);
-    SDL_SetRenderDrawColor(renderer,darkness_color,darkness_color,darkness_color,255);//darkness_color,darkness_color,darkness_color,255);
-    SDL_RenderClear(renderer);
 
-    for (Object* o: objects)
+    if (script_variables["dynamic_light"])
     {
-        if (o->light_tex) o->render_light();
+        SDL_SetRenderDrawColor(renderer,darkness_color,darkness_color,darkness_color,255);
+        SDL_RenderClear(renderer);
+
+        for (Object* o: objects)
+        {
+            if (o->light_tex) o->render_light();
+        }
+    }
+    else
+    {
+        SDL_SetRenderDrawColor(renderer,255,255,255,255);
+        SDL_RenderClear(renderer);
     }
 
     for (Object* o: objects)
@@ -153,7 +162,7 @@ int main(int argc, char* args[])
         std::stable_sort(objects.begin(),objects.end(),comp);
 
         for (Object* o: objects) if (o->use_camera) o->render();
-        render_shadows(100);
+        render_shadows(20);
         for (Object* o: objects) if (!o->use_camera) o->render();
 
         for (Object* o: to_delete)

@@ -362,6 +362,8 @@ void Player::update()
         tex = load_image("right"+std::to_string(anim_progress/anim_speed+1));
         light_tex = load_image("light_right"+std::to_string(anim_progress/anim_speed+1));
     }
+
+    SDL_SetTextureColorMod(light_tex,51,51,51);
 }
 
 Dialog_box::Dialog_box(int x, int y, std::string t, int speed, std::string portrait_image) : Object(x,y,"Dialog_Box",0,"",false,true)
