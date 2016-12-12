@@ -1,0 +1,2 @@
+dialog;0;117;I can't hide in the wardrobe.;3;me_thinking
+dialog;0;117;They would find me immediately.;3;me_thinking

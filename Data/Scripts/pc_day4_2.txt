@@ -1,0 +1,2 @@
+dialog;0;117;Maybe I should call for help...;3;me_thinking
+dialog;0;117;No, they probably won't answer anyway.;3;me_thinking

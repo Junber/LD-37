@@ -1,3 +1,4 @@
 sound;phone;1
 set;phone_ok;1
 set;dynamic_light;1
+set;day4_1_tv_on;1

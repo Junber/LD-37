@@ -1,0 +1,2 @@
+dialog;0;117;They are so close...;3;me_thinking
+dialog;0;117;I should hide before they break through the door.;3;me_thinking

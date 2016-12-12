@@ -7,7 +7,8 @@ mid_wall,80,180,,184,1
 # topside
 whiteboard,100,20,all_day4_1,0
 chair_dirty,124,80,all_day4_1,8
-tv_dirty,200,52,tv_day4_1,38
+day4_1_tv_off:tv_dirty,200,52,tv_day4_1,38
+day4_1_tv_on:tv_on_dirty,200,52,,38
 table_dirty,200,110,all_day4_1,20
 couch_dirty,192,140,all_day4_1,20
 # rightside

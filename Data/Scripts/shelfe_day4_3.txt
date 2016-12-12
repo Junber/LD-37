@@ -1,0 +1,2 @@
+dialog;0;117;My figurines...;3;me_thinking
+dialog;0;117;Maybe I should read some of these books.;3;me_thinking

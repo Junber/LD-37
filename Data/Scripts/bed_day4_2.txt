@@ -1,0 +1,2 @@
+dialog;0;117;I have to hide.;3;me_thinking
+dialog;0;117;They are coming for me.;3;me_thinking

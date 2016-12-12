@@ -1,0 +1,2 @@
+dialog;0;117;My old school uniform.;3;me_thinking
+dialog;0;117;I forgot I kept it.;3;me_thinking
