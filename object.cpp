@@ -309,10 +309,12 @@ void Object::render_light()
     SDL_RenderCopy(renderer, light_tex, nullptr, &r);
 }
 
-Player::Player() : Object(20,20,"front1",4,"",false,false)
+Player::Player() : Object(20,20,"front1",4,"",false,false,false,true)
 {
     anim_progress = 0;
     persistent = true;
+
+    SDL_SetTextureBlendMode(light_tex,SDL_BLENDMODE_BLEND);
 
     load_script("start",&script);
     execute_script(script);
@@ -337,24 +339,28 @@ void Player::update()
         anim_progress++;
         anim_progress%=6*anim_speed;
         tex = load_image("front"+std::to_string(anim_progress/anim_speed+1));
+        light_tex = load_image("light_front"+std::to_string(anim_progress/anim_speed+1));
     }
     else if (keystate[SDL_SCANCODE_W] && !keystate[SDL_SCANCODE_S])
     {
         anim_progress++;
         anim_progress%=6*anim_speed;
         tex = load_image("back"+std::to_string(anim_progress/anim_speed+1));
+        light_tex = load_image("light_back"+std::to_string(anim_progress/anim_speed+1));
     }
     else if (keystate[SDL_SCANCODE_A] && !keystate[SDL_SCANCODE_D])
     {
         anim_progress++;
         anim_progress%=6*anim_speed;
         tex = load_image("left"+std::to_string(anim_progress/anim_speed+1));
+        light_tex = load_image("light_left"+std::to_string(anim_progress/anim_speed+1));
     }
     else if (keystate[SDL_SCANCODE_D] && !keystate[SDL_SCANCODE_A])
     {
         anim_progress++;
         anim_progress%=6*anim_speed;
         tex = load_image("right"+std::to_string(anim_progress/anim_speed+1));
+        light_tex = load_image("light_right"+std::to_string(anim_progress/anim_speed+1));
     }
 }
 

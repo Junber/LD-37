@@ -19,7 +19,7 @@ public:
     virtual void update();
     virtual void render();
     void render_shadow(int darkness_color);
-    void render_light();
+    virtual void render_light();
     virtual bool interact(bool touch);
 };
 
