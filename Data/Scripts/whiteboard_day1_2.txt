@@ -1,6 +1,6 @@
 dialog;0;117;Let's take a look at the "conspiracy detection whiteboard".;3;me_thinking
 closeup;1;whiteboard_closeup
-dialog;-70;0;;;
+dialog;-70;0;3;3;
 dialog;0;117;Curse these fiends.*One day I will reveal their hideous deeds...;3;me_thinking
 dialog;0;117;And maybe...*I will be able to go out again..;3;me_thinking
 closeup;0;whiteboard_closeup

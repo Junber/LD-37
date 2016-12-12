@@ -24,5 +24,6 @@ bed,96,255,bed_day2_2,40
 nightstand_on,96,293,,20
 # kitchen
 sink,56,262,sink_day2_2,94
+microwave,57,263,,20,,1
 fridge,49,212,fridge_day2_2,25
 outdoor,10,342,outdoor_day2_2,50

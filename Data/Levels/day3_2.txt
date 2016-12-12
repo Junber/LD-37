@@ -11,7 +11,7 @@ tv_dirty,200,52,,38
 table_dirty,200,110,,20
 couch_dirty,192,140,,20
 # rightside
-phone_on_dirty,300,60,,28
+phone_off_dirty,300,60,,28
 drawers_dirty,315,62,drawers_day3_2,64
 wardrobe_dirty,308,150,wardrobe_day3_2,30
 printer_dirty,316,250,printer_day3_2,20
@@ -24,5 +24,6 @@ bed_dirty,96,255,bed_day3_2,40
 flamingo_off_dirty,96,280,flamingo_day3_2,20
 # kitchen
 sink_dirty,56,262,sink_day3_2,94
+microwave_dirty,57,263,,20,,1
 fridge_dirty,49,212,fridge_day3_2,25
 outdoor_dirty,10,342,outdoor_day3_2,50

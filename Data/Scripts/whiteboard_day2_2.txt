@@ -1,6 +1,6 @@
 dialog;0;117;What is this?;3;me_thinking
 closeup;1;whiteboard_closeup
-dialog;-70;0;;;
+dialog;-70;0;3;3;
 dialog;0;117;That's not what I wrote some days ago.;3;me_thinking
 dialog;0;117;Where is the part about their possible hideout locations...;3;me_thinking
 dialog;0;117;and the part concerning phone tapping.;3;me_thinking

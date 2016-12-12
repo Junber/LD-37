@@ -1,0 +1,1 @@
+dialog;0;117;I can't see anything.;3;me_thinking
