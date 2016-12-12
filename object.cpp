@@ -81,7 +81,8 @@ Object::Object(int x, int y, std::string s, int hitbox_height, std::string scrip
         for (int i=1; i<=light_frames; i++)
         {
             light_tex[i-1] = load_image("light_"+s+std::to_string(i));
-            SDL_SetTextureBlendMode(light_tex[i],SDL_BLENDMODE_ADD);
+            SDL_SetTextureBlendMode(light_tex[i-1],SDL_BLENDMODE_ADD);
+            std::cout << i;
         }
     }
     else

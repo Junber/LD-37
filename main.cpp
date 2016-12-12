@@ -62,6 +62,12 @@ bool comp(Object* a, Object* b)
     return (!a->foreground && (b->foreground || (a->pos[1]+a->size[1]/2 < b->pos[1]+b->size[1]/2)));
 }
 
+
+void main_menu()
+{
+
+}
+
 int main(int argc, char* args[])
 {
     IMG_Init(IMG_INIT_PNG);
@@ -76,6 +82,8 @@ int main(int argc, char* args[])
 
     overlay = SDL_CreateTexture(renderer,SDL_PIXELFORMAT_RGBA8888,SDL_TEXTUREACCESS_TARGET,window[0],window[1]);
     SDL_SetTextureBlendMode(overlay,SDL_BLENDMODE_MOD);
+
+    main_menu();
 
     player = new Player();
 
