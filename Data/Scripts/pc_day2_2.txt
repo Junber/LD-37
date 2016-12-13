@@ -13,11 +13,11 @@ dialog;0;117;but i didn't fall for it.;3;me
 sound;message
 dialog;0;117;I don't know hailstorm,;3;santaPause
 dialog;0;117;but that sounds pretty normal to me.;3;santaPause
-dialog;0;117;These officials often want to talk to face to face.;3;santaPause
+dialog;0;117;These officials often want to talk face to face.;3;santaPause
 dialog;0;117;I think what you did was rather impolite.;3;santaPause
 sound;message
 dialog;0;117;oh boy, why don't we drop the act?;3;zebra
-dialog;0;117;it was fun but don't you think that this is becomming boring?;3;zebra
+dialog;0;117;it was fun but don't you think*that this is becomming boring?;3;zebra
 dialog;0;117;what are you talking about, zebra?;3;me
 sound;message
 dialog;0;117;i'm talking about this whole "organisation" thing.;3;zebra
@@ -32,7 +32,7 @@ dialog;0;117;Sorry, I thought you were joking.;3;santaPause
 dialog;0;117;zebra is right.;3;santaPause
 dialog;0;117;We should drop the act.;3;santaPause
 dialog;0;117;Don't you think so?;3;santaPause
-dialog;0;117;I honestly didn't expect you to believe in this organization.;3;santaPause
+dialog;0;117;I honestly didn't expect you*to believe in this organization.;3;santaPause
 dialog;0;117;come on guys, stop joking around..;3;me
 sound;message
 dialog;0;117;Goodbye, hailstorm.;3;santaPause

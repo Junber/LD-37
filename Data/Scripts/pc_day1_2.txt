@@ -1,11 +1,11 @@
 dialog;0;117;Alright, let's see if my comrades are online.;3;me_thinking
 closeup;1;pc_closeup
 #
-dialog;0;117;hey guys I'm back;3;me
+dialog;0;117;hailstorm: hey guys I'm back;3;me
 sound;message
-dialog;0;117;Hey, what's going on hailstorm?;3;santapause
+dialog;0;117;santapause: Hey, what's going on hailstorm?;3;santapause
 sound;message
-dialog;0;117;oh, our hero is back! XD;3;zebra
+dialog;0;117;zebra: oh, our hero is back! XD;3;zebra
 dialog;0;117;yep :3;3;me
 dialog;0;117;listen guys,;3;me
 dialog;0;117;today I recieved a call..;3;me
@@ -14,7 +14,7 @@ dialog;0;117;was it "them"?;3;zebra
 sound;message
 dialog;0;117;Really?;3;santapause
 dialog;0;117;I didn't expect them to go that far...;3;santapause
-dialog;0;117;nah, was my mother?;3;me
+dialog;0;117;nah, was my mother.;3;me
 sound;message
 dialog;0;117;lol. then why're you tellin this?;3;zebra
 dialog;0;117;it made me realize something,;3;me

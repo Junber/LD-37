@@ -391,7 +391,7 @@ void Player::update()
         light_tex[0] = load_image("light_right"+std::to_string(anim_progress/anim_speed+1));
     }
 
-    int color_mod = script_variables["pitch_black"]?13:51;
+    int color_mod = script_variables["pitch_black"]?25:((script_variables.count("not_that_dark") && script_variables["not_that_dark"])?102:51);
     SDL_SetTextureColorMod(light_tex[0],color_mod,color_mod,color_mod);
 }
 

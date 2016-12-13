@@ -1,1 +1,1 @@
-dialog;0;117;What is this ugly thing over there?;3;me_thinking_tired
+dialog;0;117;What is this ugly thing next to my bed?;3;me_thinking_tired

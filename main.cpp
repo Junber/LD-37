@@ -199,11 +199,10 @@ int main(int argc, char* args[])
 
     player = new Player();
 
-    SDL_Texture* bg = load_image("background");
     int bg_size[2];
-    SDL_QueryTexture(bg,nullptr,nullptr,&bg_size[0],&bg_size[1]);
+    SDL_QueryTexture(load_image("background"),nullptr,nullptr,&bg_size[0],&bg_size[1]);
 
-    load_script("start",&player->script);//("start",&player->script);
+    load_script("end_day3",&player->script);//("start",&player->script);
     execute_script(player->script);
     player->script.clear();
 
@@ -281,7 +280,7 @@ int main(int argc, char* args[])
 
             if ((script_variables.count("hallway") && script_variables["hallway"]))
             {
-                if (camera_pos[0] < window[0]/2-5-308) camera_pos[0] = window[0]/2-5-308;
+                if (camera_pos[0] < window[0]/2-5-308-54) camera_pos[0] = window[0]/2-5-308-54;
             }
             else if (camera_pos[0] < window[0]/2-5) camera_pos[0] = window[0]/2-5;
 
@@ -290,6 +289,8 @@ int main(int argc, char* args[])
             else if (camera_pos[1] > bg_size[1]-window[1]/2+135) camera_pos[1] = bg_size[1]-window[1]/2+135;
 
             SDL_Rect r = {8-camera_pos[0]+window[0]/2, 72-camera_pos[1]+window[1]/2, bg_size[0], bg_size[1]};
+
+            SDL_Texture* bg = (script_variables.count("dirty") && script_variables["dirty"])?load_image("background_dirty"):load_image("background");
 
             if (active_effects[trails])
             {
@@ -303,7 +304,7 @@ int main(int argc, char* args[])
             std::stable_sort(objects.begin(),objects.end(),comp);
 
             for (Object* o: objects) if (o->use_camera) o->render();
-            render_shadows((script_variables.count("pitch_black") && script_variables["pitch_black"])?5:20);
+            render_shadows((script_variables.count("pitch_black") && script_variables["pitch_black"])?10:((script_variables.count("not_that_dark") && script_variables["not_that_dark"])?40:20));
         }
 
         for (Object* o: objects) if (!o->use_camera) o->render();

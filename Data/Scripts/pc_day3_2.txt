@@ -1,9 +1,12 @@
-closeup;1;pc_closeup
 dialog;0;117;Some weird things are happening around me.;3;me_thinking_tired
 dialog;0;117;Maybe my friends...;3;me_thinking_tired
 dialog;0;117;can help me.;3;me_thinking_tired
-dialog;0;117;I hopefully things are back to normal;3;me_thinking_tired
+dialog;0;117;Hopefully things are back to normal;3;me_thinking_tired
 dialog;0;117;so that I can talk to them like always.;3;me_thinking_tired
+closeup;1;pc_closeup
+dialog;0;117;Hey guys, about last time...;3;me_tired
+dialog;0;117;You were joking,right?;3;me_tired
+dialog;0;117;guys?;3;me_tired
 closeup;0;pc_closeup
 dialog;0;117;Still no replies.;3;me_thinking_tired
 #

@@ -2,7 +2,7 @@ set;flamingo_talking;1
 level
 #
 dialog;0;117;Hey pal!;3;flamingo
-dialog;0;117;In case you haven't realized this by now:;3;flamingo
+dialog;0;117;In case you haven't realized this by now,;3;flamingo
 dialog;0;117;You are completely nuts.;3;flamingo
 dialog;0;117;But that was to be expected.;3;flamingo
 dialog;0;117;I flamingoan...;3;flamingo
@@ -48,6 +48,7 @@ level;day4_3
 set;dynamic_light;0
 teleport;150;235
 sound;gentle_knocking;1
+set;dirty;0
 #
 dialog;0;117;My room...;3;me
 dialog;0;117;It's back to normal.;3;me

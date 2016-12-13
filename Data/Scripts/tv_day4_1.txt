@@ -1,3 +1,8 @@
 stop_sound
+sound;knocking;1
 level;day4_2
 set;hallway;1
+#
+dialog;0;117;I-It's them!;3;me_thinking
+dialog;0;117;It has to be.;3;me_thinking
+dialog;0;117;Are they trying to get in?;3;me_thinking

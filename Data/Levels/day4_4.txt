@@ -20,6 +20,10 @@ desk_chair_dirty,281,275,all_day4_4,10
 # bett
 shelf_dirty,96,180,all_day4_4,0,0,1
 bed_dirty,96,255,bed_day4_4,40
+#nightstand
+nightstand_on_dirty:nightstand_on,96,293,nightstand_on,20,,,,1
+nightstand_off_dirty:nightstand_off,96,293,nightstand_off,20
+#
 # kitchen
 sink_dirty,56,262,all_day4_4,94
 microwave_dirty,57,263,,20,,1

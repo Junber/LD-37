@@ -6,7 +6,7 @@ bot_wall,0,334,,50,0
 mid_wall,80,180,,184,1
 # topside
 not_done_whiteboard:whiteboard,100,20,whiteboard_day2_2,0
-done_whiteboard:whiteboard,100,20,whiteboard_day1_3,0
+done_whiteboard:whiteboard,100,20,whiteboard_day2_3,0
 chair,124,80,chair_day2_2,8
 tv,200,52,,38,,,,3
 table,200,110,,20

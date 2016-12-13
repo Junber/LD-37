@@ -1,1 +1,4 @@
-dialog;0;117;...;3;me_thinking
+dialog;0;117;It's so dark...;3;me_thinking_tired
+dialog;0;117;What is this sound?;3;me_thinking_tired
+dialog;0;117;Is it comming from...;3;me_thinking_tired
+dialog;0;117;The sink?;3;me_thinking_tired

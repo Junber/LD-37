@@ -1,11 +1,17 @@
 dialog;0;117;Let's see who it is.;3;me_thinking
 stop_sound
 closeup;1;flamingo_peep
+sound;ambience_robtic;1
 dialog;0;-70;;3;
+stop_sound
 closeup;0;flamingo_peep
 #
 level;day4_4
+music;the_end_is_near
 set;dynamic_light;1
+set;pitch_black;0
+set;not_that_dark;1
+set;dirty;1
 dialog;0;117;N-no...;3;me_thinking
 dialog;0;117;It's a dream!;3;me_thinking
 dialog;0;117;It has to be!;3;me_thinking
