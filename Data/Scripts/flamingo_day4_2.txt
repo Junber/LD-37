@@ -16,7 +16,7 @@ dialog;0;117;But...;3;flamingo
 dialog;0;117;You are not the kind of guy*who would start over again, are you?;3;flamingo
 dialog;0;117;No...;3;flamingo
 dialog;0;117;You are the kind of guy*who gives up immediately after a setback.;3;flamingo
-dialog;0;117;You becaflamingo unable to face your friends...;3;flamingo
+dialog;0;117;You became unable to face your friends...;3;flamingo
 dialog;0;117;And... even your parents.;3;flamingo
 dialog;0;117;Thus you became a shut-in.;3;flamingo
 dialog;0;117;Oh please, don't give old flamingo that look!;3;flamingo
