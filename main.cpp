@@ -217,32 +217,39 @@ int main(int argc, char* args[])
 
 			else if (e.type == SDL_KEYDOWN)
 			{
+			    bool done_something=false;
+
 			    switch (e.key.keysym.sym)
 			    {
                     case SDLK_ESCAPE:
                         breakk = true;
                         break;
                     case SDLK_e:
-                        bool done_soemthing=false;
                         for (Object* o: objects)
                         {
                             if (o->interact(false))
                             {
-                                done_soemthing = true;
+                                done_something = true;
                                 break;
                             }
                         }
-                        if (done_soemthing) break;
+                        if (done_something) break;
 
                         for (Object* o: objects)
                         {
                             if (o != player && o->collision(player->pos[0],player->pos[1],player->size[0]+2,player->size[1]+2,player->non_hitbox_height))
                             {
-                                if (o->interact(true)) break;
+                                if (o->interact(true))
+                                {
+                                    done_something = true;
+                                    break;
+                                }
                             }
                         }
                         break;
 			    }
+
+			    if (done_something) break;
 			}
         }
 

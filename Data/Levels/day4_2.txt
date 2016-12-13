@@ -15,19 +15,18 @@ hallway_end,-308,150,,70,
 # topside
 whiteboard4,100,20,whiteboard_day4_2,0
 chair_dirty,124,80,chair_day4_2,8
-tv_dirty,200,52,,38
+tv_dirty,200,52,,38,,,,3
 table_dirty,200,110,,20
 couch_dirty,192,140,,20
 # rightside
-phone_on_dirty,300,60,,28
+phone_off_dirty,300,60,,28
 drawers_dirty,315,62,printer_day4_2,64
 wardrobe_dirty,308,150,wardrobe_day4_2,30
 printer_dirty,316,250,printer_day4_2,20
-pc_on_dirty,308,270,pc_day4_2,44
+pc_on_dirty,308,270,pc_day4_2,44,,,,2
 desk_chair_dirty,281,275,,10
 # bett
 shelf_dirty,96,180,shelf_day4_2,0,0,1
-switch_off,96,236,,8
 bed_dirty,96,255,bed_day4_2,40
 triggered_hallway:flamingo_off_dirty,0,150,flamingo_day4_2,20
 flamingo_talking:flamingo_on_dirty,0,150,,20,,,,1

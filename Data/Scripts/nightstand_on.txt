@@ -1,0 +1,3 @@
+set;nightstand_on;0
+set;nightstand_off;1
+level

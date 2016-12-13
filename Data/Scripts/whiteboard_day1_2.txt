@@ -2,6 +2,7 @@ dialog;0;117;Let's take a look at the*"conspiracy detection whiteboard".;3;me_th
 closeup;1;whiteboard_closeup
 dialog;0;-70;;3;
 closeup;0;whiteboard_closeup
+sound;whiteboard
 closeup;1;whiteboard_closeup2
 dialog;0;-70;;3;
 closeup;0;whiteboard_closeup2

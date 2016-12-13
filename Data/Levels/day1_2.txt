@@ -7,7 +7,7 @@ mid_wall,80,180,,184,1
 # topside
 whiteboard,100,20,phone_day1_2,0
 chair,124,80,phone_day1_2,8
-tv,200,52,,38
+tv,200,52,,38,,,,3
 table,200,110,,20
 couch,192,140,,20
 # rightside
@@ -22,8 +22,8 @@ shelf,96,180,,0,0,1
 bed,96,255,bed_day1_2,40
 #
 #nightstand
-nightstand_on:nightstand_on,96,293,night_stand_on,20
-nightstand_off:nightstand_off,96,293,night_stand_off,20
+nightstand_on:nightstand_on,96,293,nightstand_on,20,,,,1
+nightstand_off:nightstand_off,96,293,nightstand_off,20
 #
 #light
 dynamic_light:switch_off,96,236,switch_day1_1,18

@@ -1,6 +1,48 @@
 dialog;0;117;Alright, let's see if my comrades are online.;3;me_thinking
 closeup;1;pc_closeup
-dialog;0;117;At least these guys truly understand me.;3;me_thinking
+#
+dialog;0;117;hey guys I'm back;3;me
+sound;message
+dialog;0;117;Hey, what's going on hailstorm?;3;santapause
+sound;message
+dialog;0;117;oh, our hero is back! XD;3;zebra
+dialog;0;117;yep :3;3;me
+dialog;0;117;listen guys,;3;me
+dialog;0;117;today I recieved a call..;3;me
+sound;message
+dialog;0;117;was it "them"?;3;zebra
+sound;message
+dialog;0;117;Really?;3;santapause
+dialog;0;117;I didn't expect them to go that far...;3;santapause
+dialog;0;117;nah, was my mother?;3;me
+sound;message
+dialog;0;117;lol. then why're you tellin this?;3;zebra
+dialog;0;117;it made me realize something,;3;me
+dialog;0;117;our phones are probably tapped.;3;me
+sound;message
+dialog;0;117;holy shit!;3;zebra
+dialog;0;117;are you sure?;3;zebra
+dialog;0;117;yes.;3;me
+sound;message
+dialog;0;117;That certainly would explain, ;3;santapause
+dialog;0;117;why the battery of my phone gets hot all the time;3;santapause
+dialog;0;117;even when I don't use it.;3;santapause
+sound;message
+dialog;0;117;i can't believe it.;3;zebra
+dialog;0;117;i just talked with another companion of us.;3;zebra
+dialog;0;117;and they heard all of it?;3;zebra
+dialog;0;117;most likely;3;me
+sound;message
+dialog;0;117;Oh dear.;3;santapause
+dialog;0;117;Thank you for the warning.;3;santapause
+dialog;0;117;I'll go out to buy another phone.;3;santapause
+dialog;0;117;Goodbye.;3;santapause
+dialog;0;117;bye santa;3;me
+sound;message
+dialog;0;117;me too;3;zebra
+dialog;0;117;thanks, hailstorm!;3;zebra
+dialog;0;117;np, see you.;3;me
+#
 closeup;0;pc_closeup
 done_whiteboard:dialog;0;117;Phew.*I'm tired now.;3;me_thinking
 #

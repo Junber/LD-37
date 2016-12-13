@@ -1,6 +1,42 @@
 dialog;0;117;I must have left it on.;3;me_thinking
 closeup;1;pc_closeup
-dialog;0;117;Why would they say something like this?;3;me_thinking
+#
+dialog;0;117;what's going on guys?;3;me
+sound;message
+dialog;0;117;oh...;3;zebra
+dialog;0;117;hailstorm, what is it?;3;zebra
+dialog;0;117;i think i met one of their agents.;3;me
+dialog;0;117;he was dressed in a suit and claimed;3;me
+dialog;0;117;that i didn't pay my electricity bills.;3;me
+dialog;0;117;he wanted me to open the door;3;me
+dialog;0;117;but i didn't fall for it.;3;me
+sound;message
+dialog;0;117;I don't know hailstorm,;3;santaPause
+dialog;0;117;but that sounds pretty normal to me.;3;santaPause
+dialog;0;117;These officials often want to talk to face to face.;3;santaPause
+dialog;0;117;I think what you did was rather impolite.;3;santaPause
+sound;message
+dialog;0;117;oh boy, why don't we drop the act?;3;zebra
+dialog;0;117;it was fun but don't you think that this is becomming boring?;3;zebra
+dialog;0;117;what are you talking about, zebra?;3;me
+sound;message
+dialog;0;117;i'm talking about this whole "organisation" thing.;3;zebra
+dialog;0;117;don't tell me you believe this shit.;3;zebra
+dialog;0;117;shit??;3;me
+dialog;0;117;why do you call it shit?;3;me
+dialog;0;117;there is evidence they exist,;3;me
+dialog;0;117;didn't santa say that his phone was getting hot;3;me
+dialog;0;117;even though he didn't use it?;3;me
+sound;message
+dialog;0;117;Sorry, I thought you were joking.;3;santaPause
+dialog;0;117;zebra is right.;3;santaPause
+dialog;0;117;We should drop the act.;3;santaPause
+dialog;0;117;Don't you think so?;3;santaPause
+dialog;0;117;I honestly didn't expect you to believe in this organization.;3;santaPause
+dialog;0;117;come on guys, stop joking around..;3;me
+sound;message
+dialog;0;117;Goodbye, hailstorm.;3;santaPause
+#
 closeup;0;pc_closeup
 #
 set;not_done_pc;0

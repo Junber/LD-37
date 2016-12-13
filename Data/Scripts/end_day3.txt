@@ -5,8 +5,8 @@ closeup;0;day_end
 set;dynamic_light;1
 set;no_dynamic_light;0
 set;pitch_black;1
-set;night_stand_on;1
-set;night_stand_off;0
+set;nightstand_on;1
+set;nightstand_off;0
 set;not_did_door;1
 set;not_done_whiteboard;1
 set;done_whiteboard;0
@@ -17,6 +17,7 @@ set;not_done_all;1
 set;not_triggered_hallway;1
 set;triggered_hallway;0
 #
+sound;static;1
 music;the_end_is_near
 teleport;150;235
 level;day4_1

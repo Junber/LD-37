@@ -7,23 +7,29 @@ mid_wall,80,180,,184,1
 # topside
 whiteboard,100,20,whiteboard_day1_3,0
 chair,124,80,chair_day2_2,8
-tv,200,52,,38
+tv,200,52,,38,,,,3
 table,200,110,,20
 couch,192,140,,20
 # rightside
-phone_on,300,60,,28
+phone_off,300,60,,28
 drawers,315,62,draws_day2_2,64
 wardrobe,308,150,wardrobe_day2_2,30
 printer,316,250,printer_day2_2,20
-not_done_pc:pc_on,308,270,pc_day2_2,44
-done_pc:pc_on,308,270,pc_day2_1,44
+not_done_pc:pc_on,308,270,pc_day2_2,44,,,,2
+done_pc:pc_on,308,270,pc_day2_1,44,,,,2
 desk_chair,281,275,,10
 # bett
 shelf,96,180,shelf_day2_2,0,0,1
-switch_off,96,236,,8
 not_done_pc:bed,96,255,bed_day2_2,40
 done_pc:bed_wrong,96,255,end_day2,40
-nightstand_on,96,293,,20
+#nightstand
+nightstand_on:nightstand_on,96,293,nightstand_on,20,,,,1
+nightstand_off:nightstand_off,96,293,nightstand_off,20
+#
+#light
+dynamic_light:switch_off,96,236,switch_day1_1,18
+no_dynamic_light:switch_on,96,236,switch_day1_2,18
+#
 # kitchen
 sink,56,262,sink_day2_2,94
 microwave,57,263,,20,,1

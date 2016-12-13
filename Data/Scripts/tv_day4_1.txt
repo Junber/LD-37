@@ -1,2 +1,3 @@
+stop_sound
 level;day4_2
 set;hallway;1

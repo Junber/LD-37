@@ -1,6 +1,6 @@
 stop_sound
 level;day1_2
-play;pick_up_phone
+sound;pick_up_phone
 #
 dialog;0;117;Hello darling.;3;mom
 #
@@ -45,7 +45,7 @@ dialog;0;117;Y-you wouldn't understand.;3;me
 dialog;0;117;Anyway*I'm fine.;3;me
 #
 #hangs up
-play;hang_up
+sound;hang_up
 #
 dialog;0;117;The organisation..*They watch me.;3;me_thinking
 #

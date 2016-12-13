@@ -186,6 +186,8 @@ bool Object::interact(bool touch)
         if (script.empty()) return false;
 
         execute_script(script);
+
+        return true;
     }
 
     return false;

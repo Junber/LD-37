@@ -8,7 +8,7 @@ mid_wall,80,180,,184,1
 not_done_whiteboard:whiteboard,100,20,whiteboard_day1_2,0
 done_whiteboard:whiteboard2,100,20,whiteboard_day1_3,0
 chair,124,80,chair_day1_2,8
-tv,200,52,,38
+tv,200,52,,38,,,,3
 table,200,110,,20
 couch,192,140,,20
 # rightside
@@ -17,7 +17,7 @@ drawers,315,62,drawers_day1_2,64
 wardrobe,308,150,wardrobe_day1_2,30
 printer,316,250,printer_day1_2,20
 not_done_pc:pc_off,308,270,pc_day1_2,44
-done_pc:pc_off,308,270,pc_day1_3,44
+done_pc:pc_on,308,270,pc_day1_3,44,,,,2
 desk_chair,281,275,,10
 # bett
 shelf,96,180,,0,0,1
@@ -25,8 +25,8 @@ not_done_all:bed,96,255,bed_day1_2,40
 done_all:bed,96,255,end_day1,40
 #
 #nightstand
-nightstand_on:nightstand_on,96,293,night_stand_on,20
-nightstand_off:nightstand_off,96,293,night_stand_off,20
+nightstand_on:nightstand_on,96,293,nightstand_on,20,,,,1
+nightstand_off:nightstand_off,96,293,nightstand_off,20
 #
 #light
 dynamic_light:switch_off,96,236,switch_day1_1,18

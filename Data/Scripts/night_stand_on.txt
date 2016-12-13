@@ -1,3 +1,0 @@
-set;night_stand_on;0
-set;night_stand_off;1
-level
