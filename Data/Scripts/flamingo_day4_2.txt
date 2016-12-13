@@ -43,6 +43,7 @@ closeup;1;day_end
 dialog;0;117;Because now it's already too late;3;flamingo
 closeup;0;day_end
 #
+music;happy_song
 level;day4_3
 set;dynamic_light;0
 teleport;150;235

@@ -15,6 +15,7 @@ set;done_pc;0
 set;done_all;0
 set;not_done_all;1
 #
+music;they_exist
 sound;ringing_pipe;1
 teleport;150;235
 level;day3_1

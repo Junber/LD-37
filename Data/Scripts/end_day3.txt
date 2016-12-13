@@ -17,5 +17,6 @@ set;not_done_all;1
 set;not_triggered_hallway;1
 set;triggered_hallway;0
 #
+music;the_end_is_near
 teleport;150;235
 level;day4_1
