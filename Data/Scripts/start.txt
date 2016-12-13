@@ -7,3 +7,4 @@ set;not_done_pc;1
 set;not_done_all;1
 teleport;150;235
 level;start
+dialog;0;117;It's quite dark in here. Maybe I should*turn on the lights before ansering the phone.;3;me_thinking

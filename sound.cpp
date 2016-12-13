@@ -1,6 +1,5 @@
 #include "sound.h"
 #include "loading.h"
-#include <iostream>
 
 void sound_init()
 {

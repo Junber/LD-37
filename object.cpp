@@ -4,7 +4,6 @@
 #include "font.h"
 #include "sound.h"
 #include "loading.h"
-#include <iostream>
 #include "SDL2_gfx-1.0.1/SDL2_gfxPrimitives.h"
 
 const Uint8* keystate;
@@ -97,7 +96,6 @@ Object::Object(int x, int y, std::string s, int hitbox_height, std::string scrip
         {
             light_tex[i-1] = load_image("light_"+s+std::to_string(i));
             SDL_SetTextureBlendMode(light_tex[i-1],SDL_BLENDMODE_ADD);
-            std::cout << i;
         }
     }
     else

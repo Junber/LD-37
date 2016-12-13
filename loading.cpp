@@ -2,7 +2,6 @@
 #include "base_functions.h"
 #include "object.h"
 #include <map>
-#include <iostream>
 
 const int renderzoom = 5;
 bool breakk = false;

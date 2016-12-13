@@ -4,7 +4,6 @@
 #include <map>
 #include <string>
 #include <algorithm>
-#include <iostream>
 #include "object.h"
 #include "loading.h"
 #include "font.h"
