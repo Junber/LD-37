@@ -12,6 +12,7 @@ set;done_whiteboard;0
 set;not_done_pc;1
 set;done_pc;0
 #
+music;they_re_watching_you
 sound;knocking;1
 teleport;150;235
 level;day2_1

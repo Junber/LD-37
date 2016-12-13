@@ -1,0 +1,7 @@
+closeup;1;day_end
+dialog;0;-70;;3;
+closeup;0;day_end
+closeup;1;credits
+dialog;0;-70;;3;
+closeup;0;credits
+end_game

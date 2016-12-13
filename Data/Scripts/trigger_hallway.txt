@@ -1,0 +1,3 @@
+set;not_triggered_hallway;0
+set;triggered_hallway;1
+level

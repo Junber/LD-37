@@ -1,0 +1,2 @@
+dialog;0;117;It's a dream!;3;me_thinking
+dialog;0;117;It has to be!;3;me_thinking

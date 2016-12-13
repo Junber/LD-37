@@ -1,1 +1,13 @@
 dialog;0;117;Let's see who it is.;3;me_thinking
+stop_sound
+closeup;1;flamingo_peep
+dialog;0;-70;;3;
+closeup;0;flamingo_peep
+#
+level;day4_4
+set;dynamic_light;1
+dialog;0;117;N-no...;3;me_thinking
+dialog;0;117;It's a dream!;3;me_thinking
+dialog;0;117;It has to be!;3;me_thinking
+dialog;0;117;Next time I wake up...;3;me_thinking
+dialog;0;117;Everything will be allright!;3;me_thinking

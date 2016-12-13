@@ -19,6 +19,6 @@ sound;ringing_pipe;1
 teleport;150;235
 level;day3_1
 #
-dialog;0;117;What is this noise?;3;me_thining
-dialog;0;117;It'a pitch dark...;3;me_thining
-dialog;0;117;I can't see shit.;3;me_thining
+dialog;0;117;What is this noise?;3;me_thinking
+dialog;0;117;It'a pitch dark...;3;me_thinking
+dialog;0;117;I can't see shit.;3;me_thinking

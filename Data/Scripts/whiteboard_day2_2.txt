@@ -12,6 +12,7 @@ closeup;0;whiteboard_closeup
 dialog;0;117;Who did this?;3;me_thinking
 dialog;0;117;It couldn't have been...;3;me_thinking
 dialog;0;117;them?;3;me_thinking
+dialog;0;117;I need to tell someone.;3;me_thinking
 #
 set;not_done_whiteboard;0
 set;done_whiteboard;1

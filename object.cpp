@@ -68,11 +68,16 @@ void execute_script(std::deque<std::string> script)
             {
                 script_variables[splitted[1]] = std::stoi(splitted[2]);
             }
+            else if (splitted[0] == "end_game")
+            {
+                breakk=true;
+                return;
+            }
         }
     }
 }
 
-Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground, bool zone, int light)
+Object::Object(int x, int y, std::string s, int hitbox_height, std::string script_file, bool shadow, bool in_foreground, bool zone, int light, bool in_background)
 {
     pos[0] = x;
     pos[1] = y;
@@ -111,6 +116,7 @@ Object::Object(int x, int y, std::string s, int hitbox_height, std::string scrip
     non_hitbox_height = size[1]-hitbox_height;
 
     foreground=in_foreground;
+    background=in_background;
     use_camera=true;
     persistent = false;
     is_zone = zone;

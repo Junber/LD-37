@@ -20,6 +20,7 @@ enum effects
     trails,random_bg_color,move_window,EFFECT_NUM
 };
 
+extern bool breakk;
 extern SDL_Window* renderwindow;
 extern SDL_Renderer* renderer;
 extern const int window[2];

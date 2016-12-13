@@ -1,11 +1,19 @@
 # walls
 top_wall_dirty,0,0,,15,
-left_wall,0,72,,470,1
+high_left_wall,0,72,,78,
+low_left_wall,0,204,,152,
 right_wall,332,72,,284,
 bot_wall,0,334,,50,0
 mid_wall,80,180,,184,1
+# hallway
+hallway_floor,-308,150,,0,,,,1,1
+not_triggered_hallway:hallway_zone,-308,150,trigger_hallway,54,,,1
+triggered_hallway:hallway_zone,-308,150,,54,,,1
+hallway_top_wall,-308,78,,15,
+hallway_bot_wall,-308,204,,50,
+hallway_end,-308,150,,70,
 # topside
-whiteboard,100,20,whiteboard_day4_2,0
+whiteboard4,100,20,whiteboard_day4_2,0
 chair_dirty,124,80,chair_day4_2,8
 tv_dirty,200,52,,38
 table_dirty,200,110,,20
@@ -21,7 +29,8 @@ desk_chair_dirty,281,275,,10
 shelf_dirty,96,180,shelf_day4_2,0,0,1
 switch_off,96,236,,8
 bed_dirty,96,255,bed_day4_2,40
-flamingo_off_dirty,96,280,flamingo_day4_2,20
+triggered_hallway:flamingo_off_dirty,0,150,flamingo_day4_2,20
+flamingo_talking:flamingo_on_dirty,0,150,,20,,,,1
 # kitchen
 sink_dirty,56,262,sink_day4_2,94
 microwave_dirty,57,263,,20,,1

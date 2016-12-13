@@ -15,8 +15,6 @@
 void *__gxx_personality_v0;
 #endif
 
-bool breakk = false;
-
 int last_time;
 float wait;
 void limit_fps()
@@ -59,7 +57,7 @@ void render_shadows(int darkness_color)
 
 bool comp(Object* a, Object* b)
 {
-    return (!a->foreground && (b->foreground || (a->pos[1]+a->size[1]/2 < b->pos[1]+b->size[1]/2)));
+    return (!a->foreground && !b->background && (b->foreground || a->background || (a->pos[1]+a->size[1]/2 < b->pos[1]+b->size[1]/2)));
 }
 
 void options()
@@ -206,7 +204,7 @@ int main(int argc, char* args[])
     int bg_size[2];
     SDL_QueryTexture(bg,nullptr,nullptr,&bg_size[0],&bg_size[1]);
 
-    load_script("end_day2",&player->script);//("start",&player->script);
+    load_script("start",&player->script);//("start",&player->script);
     execute_script(player->script);
     player->script.clear();
 
@@ -275,8 +273,13 @@ int main(int argc, char* args[])
             camera_pos[0] = player->pos[0];
             camera_pos[1] = player->pos[1];
 
-            if (camera_pos[0] < window[0]/2-5) camera_pos[0] = window[0]/2-5;
-            else if (camera_pos[0] > bg_size[0]-window[0]/2+20) camera_pos[0] = bg_size[0]-window[0]/2+20;
+            if ((script_variables.count("hallway") && script_variables["hallway"]))
+            {
+                if (camera_pos[0] < window[0]/2-5-308) camera_pos[0] = window[0]/2-5-308;
+            }
+            else if (camera_pos[0] < window[0]/2-5) camera_pos[0] = window[0]/2-5;
+
+            if (camera_pos[0] > bg_size[0]-window[0]/2+20) camera_pos[0] = bg_size[0]-window[0]/2+20;
             if (camera_pos[1] < window[1]/2-5) camera_pos[1] = window[1]/2-5;
             else if (camera_pos[1] > bg_size[1]-window[1]/2+135) camera_pos[1] = bg_size[1]-window[1]/2+135;
 
@@ -294,7 +297,7 @@ int main(int argc, char* args[])
             std::stable_sort(objects.begin(),objects.end(),comp);
 
             for (Object* o: objects) if (o->use_camera) o->render();
-            render_shadows(script_variables["pitch_black"]?5:20);
+            render_shadows((script_variables.count("pitch_black") && script_variables["pitch_black"])?5:20);
         }
 
         for (Object* o: objects) if (!o->use_camera) o->render();

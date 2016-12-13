@@ -5,5 +5,4 @@ set;not_done_whiteboard;1
 set;not_done_pc;1
 set;not_done_all;1
 teleport;150;235
-set;day4_1_tv_on;1
 level;start
