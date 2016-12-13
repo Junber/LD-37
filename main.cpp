@@ -202,7 +202,7 @@ int main(int argc, char* args[])
     int bg_size[2];
     SDL_QueryTexture(load_image("background"),nullptr,nullptr,&bg_size[0],&bg_size[1]);
 
-    load_script("end_day3",&player->script);//("start",&player->script);
+    load_script("start",&player->script);//("start",&player->script);
     execute_script(player->script);
     player->script.clear();
 
