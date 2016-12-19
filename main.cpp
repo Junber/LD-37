@@ -63,7 +63,6 @@ void options()
 {
     Mix_VolumeMusic(100);
     int cursor_pos=0, music_volume=100;
-    bool fullscreen=false;
     SDL_Event e;
     bool breakkk = false;
 	while (!breakkk)
@@ -95,8 +94,10 @@ void options()
                         }
                         if (cursor_pos == 2)
                         {
-                            fullscreen = !fullscreen;
-                            SDL_SetWindowFullscreen(renderwindow,fullscreen*SDL_WINDOW_FULLSCREEN);
+                            renderzoom++;
+                            SDL_SetWindowFullscreen(renderwindow,0);
+                            SDL_SetWindowSize(renderwindow,window[0]*renderzoom, window[1]*renderzoom);
+                            SDL_RenderSetScale(renderer,renderzoom,renderzoom);
                         }
                         break;
                     case SDLK_a:
@@ -109,8 +110,23 @@ void options()
                         }
                         if (cursor_pos == 2)
                         {
-                            fullscreen = !fullscreen;
-                            SDL_SetWindowFullscreen(renderwindow,fullscreen*SDL_WINDOW_FULLSCREEN);
+                            renderzoom--;
+                            if (renderzoom<0) renderzoom=0;
+
+                            if (renderzoom)
+                            {
+                                SDL_SetWindowSize(renderwindow,window[0]*renderzoom, window[1]*renderzoom);
+                                SDL_RenderSetScale(renderer,renderzoom,renderzoom);
+                            }
+                            else
+                            {
+                                SDL_DisplayMode mode;
+                                SDL_GetDesktopDisplayMode(SDL_GetWindowDisplayIndex(renderwindow),&mode);
+                                int zoom = std::min(mode.w/window[0],mode.h/window[1]);
+                                SDL_SetWindowSize(renderwindow,window[0]*zoom, window[1]*zoom);
+                                SDL_RenderSetScale(renderer,zoom,zoom);
+                                SDL_SetWindowFullscreen(renderwindow,(!renderzoom)*SDL_WINDOW_FULLSCREEN);
+                            }
                         }
                         break;
                 }
@@ -123,11 +139,14 @@ void options()
         if (sfx_volume>100)sfx_volume=100;
         if (sfx_volume<0)sfx_volume=0;
 
+        SDL_SetRenderDrawColor(renderer,0,0,0,255);
+        SDL_RenderClear(renderer);
+
         SDL_RenderCopy(renderer,load_image("menu3options"+std::to_string(cursor_pos+1)),nullptr, nullptr);
 
         render_text(130,87,std::to_string(sfx_volume)+" %",0);
         render_text(130,102,std::to_string(music_volume)+" %",0);
-        render_text(130,117,fullscreen?"On":"Off",0);
+        render_text(130,117,renderzoom?std::to_string(renderzoom)+"x":"Fullscreen",0);
 
         SDL_RenderPresent(renderer);
         limit_fps();
@@ -171,6 +190,9 @@ void main_menu()
 
         cursor_pos %= 3;
         while (cursor_pos < 0) cursor_pos += 3;
+
+        SDL_SetRenderDrawColor(renderer,0,0,0,255);
+        SDL_RenderClear(renderer);
 
         SDL_RenderCopy(renderer,load_image("menu"+std::to_string(cursor_pos+1)),nullptr, nullptr);
         SDL_RenderPresent(renderer);

@@ -3,7 +3,7 @@
 #include "object.h"
 #include <map>
 
-const int renderzoom = 5;
+int renderzoom = 3;
 bool breakk = false;
 int sfx_volume=100;
 const int window[2] = {320,180}; //{480,270};//{960,540};
